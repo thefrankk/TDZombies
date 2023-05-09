@@ -4,46 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    public float currentHealth;
-
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
-
+    public float speed;
     private Rigidbody rb;
+    private Vector3 movemente;
+
 
     private void Start()
     {
-        currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + movement);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        movemente = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
     }
 
-    public void ReceiveDamage(float damage)
+    private void FixedUpdate()
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0f)
-        {
-            Die();
-        }
+        MoverJugador();
     }
 
-    private void Die()
+    void MoverJugador()
     {
-        Destroy(gameObject);
+        rb.MovePosition(transform.position + movemente * speed * Time.deltaTime);
+        transform.rotation = Quaternion.LookRotation(movemente);
     }
 }
 
