@@ -8,29 +8,31 @@ public class Zombie : MonoBehaviour
     public float life;
     public float speed;
     public float damage;
-    private GameObject aim;
-    private NavMeshAgent navMeshAgent;
+    public GameObject aim;
+    public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
+
+
 
     void Start()
     {
-        // Seleccionar un Objetivo al azar
-        int randomaim = Random.Range(0, 3);
+        /*  // Seleccionar un Objetivo al azar
+          int randomaim = Random.Range(0, 3);
 
-        switch (randomaim)
-        {
-            case 0: // Mover hacia el jugador
-                aim = GameObject.FindGameObjectWithTag("Player");
-                break;
-            case 1: // Mover hacia la torreta
-                aim = GameObject.FindGameObjectWithTag("Torreta");
-                break;
-            case 2: // Mover hacia la planta
-                aim = GameObject.FindGameObjectWithTag("Plant");
-                break;
-        }
+          switch (randomaim)
+          {
+              case 0: // Mover hacia el jugador
+                  aim = GameObject.FindGameObjectWithTag("Player");
+                  break;
+              case 1: // Mover hacia la torreta
+                  aim = GameObject.FindGameObjectWithTag("Torreta");
+                  break;
+              case 2: // Mover hacia la planta
+                  aim = GameObject.FindGameObjectWithTag("Plant");
+                  break;
+          }*/
 
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.destination = aim.transform.position;
 
     }
 
@@ -82,6 +84,8 @@ public class Zombie : MonoBehaviour
 
     #endregion
 
+  /* GENERAR DAÑO A LA TORRETA O PERSONA   
+  
     public void InflictDamage(GameObject entity)
     {
         // Obtener el componente Turret_GRAL o Plant de la entidad
@@ -106,7 +110,7 @@ public class Zombie : MonoBehaviour
         {
             human.ReceiveDamage(damage);
         }
-    }
+    }*/
     public void ReceiveDamage(float damageTaken)
     {
         life -= damageTaken;
