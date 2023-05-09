@@ -28,10 +28,6 @@ public class Button : MonoBehaviour, IInteractableObject
         receiver.DoAction();
     }
 
-
-
-
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && CanInteract)
