@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,16 @@ public class Zombie : MonoBehaviour
     public float life;
     public float speed;
     public float damage;
-    public GameObject aim;
+    private GameObject _aim;
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
 
-
+    public Action OnEnemyDestroyed;
 
     void Start()
     {
+
+        _aim = FindObjectOfType<EndDestination>().gameObject;
         /*  // Seleccionar un Objetivo al azar
           int randomaim = Random.Range(0, 3);
 
@@ -32,7 +35,7 @@ public class Zombie : MonoBehaviour
                   break;
           }*/
 
-        navMeshAgent.destination = aim.transform.position;
+        navMeshAgent.destination = _aim.transform.position;
 
     }
 
@@ -71,9 +74,9 @@ public class Zombie : MonoBehaviour
         }
 
         //Mover el zommbie hacia el objetivo
-        if (aim != null)
+        if (_aim != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, aim.transform.position, speed * Time.deltaTime);
+       //     transform.position = Vector3.MoveTowards(transform.position, _aim.transform.position, speed * Time.deltaTime);
         }
     }
 
@@ -126,9 +129,10 @@ public class Zombie : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-
-
-
-
+    private void OnDestroy()
+    {
+        Debug.Log("EnemyDestroyed");
+        OnEnemyDestroyed?.Invoke();
+        
+    }
 }

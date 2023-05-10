@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
 
     void MoverJugador()
     {
-        rb.MovePosition(transform.position + movemente * speed * Time.deltaTime);
-        transform.rotation = Quaternion.LookRotation(movemente);
+        //rb.MovePosition(transform.position + movemente * speed * Time.deltaTime);
+        //transform.rotation = Quaternion.LookRotation(movemente);
     }
 }
 

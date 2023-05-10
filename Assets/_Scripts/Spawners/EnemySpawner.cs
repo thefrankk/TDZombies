@@ -1,29 +1,44 @@
 using System.Collections;
 using UnityEngine;
+using System;
+
 
 namespace _Scripts.Spawners
 {
-    public class EnemySpawner : Spawner, IInteractableReceiver
+    public class EnemySpawner : Spawner
     {
 
-        [SerializeField] private float _delay;
-        [SerializeField] private int _id;
+        private float _delayBetweenEnemies;
+        [SerializeField] private int _enemyCount;
 
-        public int Id => _id;
-
-
-        private void Awake()
+        public event Action OnEnemiesCleared;
+        public int EnemyCount
         {
-            //FindInteractableSender();
-            StartSpawner();
+            get => _enemyCount;
+            private set
+            {
+                _enemyCount = value;
+                if (_enemyCount <= 0) OnEnemiesCleared?.Invoke();
+            }
         }
+
+
         protected override void Spawn()
         {
             if (!IsActive) return;
             
-            var enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
+            Transform enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
                 this.transform.position.y,
                 this.transform.position.z), objRef.rotation, this.transform);
+
+
+            Zombie zombie = enemy.GetComponent<Zombie>();
+            
+            _enemyCount++;
+
+            zombie.OnEnemyDestroyed += () => EnemyCount--;
+            
+            Debug.Log(_enemyCount);
         }
 
         public override void StartSpawner()
@@ -43,20 +58,13 @@ namespace _Scripts.Spawners
         private IEnumerator SpawnTimer()
         {
             Spawn();
-            yield return new WaitForSeconds(_delay);
+            yield return new WaitForSeconds(_delayBetweenEnemies);
             StartCoroutine(SpawnTimer());
 
         }
-        public void DoAction()
-        {
-            StartSpawner();
-        }
+       
 
-        public void FindInteractableSender()
-        {
-            IInteractableObject interactableObject = FindObjectsOfType<MonoBehaviour>().GetInteractableObject(Id);
-            interactableObject.InjectDependencies(this);
-        }
+        public void SetDelayBetweenEnemies(float delay) => _delayBetweenEnemies = delay;
     }
 }
 

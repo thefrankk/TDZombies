@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 1905220023207750504}
   - component: {fileID: 6436676853267348632}
   - component: {fileID: -1698430463697597225}
+  - component: {fileID: -1096285778787260465}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -224,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 3975982137897104668}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 1.633, z: 0}
-  m_LocalScale: {x: 0.15147, y: 0.15147, z: 0.15147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 43442625453110445}
@@ -326,6 +327,18 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 5, y: 0, z: 0}
   m_RelativeTorque: {x: 5, y: 0, z: 0}
+--- !u!114 &-1096285778787260465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975982137897104668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729076f89f902fe44b31d1217eaf3899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4132829001333167176
 GameObject:
   m_ObjectHideFlags: 0
