@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Player : MonoBehaviour
+public class Player : LifeEntities
 {
-    public float speed;
     private Rigidbody rb;
-    private Vector3 movemente;
+    private Vector3 movement;
 
+    public GameObject bombPrefab;
 
     private void Start()
     {
@@ -16,7 +15,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        movemente = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            InstanciarBomba();
+        }
     }
 
     private void FixedUpdate()
@@ -26,9 +30,20 @@ public class Player : MonoBehaviour
 
     void MoverJugador()
     {
-        rb.MovePosition(transform.position + movemente * speed * Time.deltaTime);
-        transform.rotation = Quaternion.LookRotation(movemente);
+        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+    }
+
+    void InstanciarBomba()
+    {
+        GameObject bomba = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+        Bomba bombaScript = bomba.GetComponent<Bomba>();
+        if (bombaScript != null)
+        {
+            bombaScript.Detonar();
+        }
     }
 }
+
+
 
 

@@ -7,13 +7,17 @@ using System.Linq;
 
 public class Turret_GRAL : MonoBehaviour
 {
+    public Transform target;
     public float range= 15f;
     public float damage;
-    public float timeShoot = 1;
     public string enemyTag = "Enemy";
-
-    private Transform target;
     public Transform partToRotate;
+    public float turnSpeed = 10f;
+
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+     
+
 
     private void Start()
     {
@@ -57,8 +61,22 @@ public class Turret_GRAL : MonoBehaviour
         Vector3 rotation = lookRotation.eulerAngles;
         partToRotate.rotation =Quaternion.Euler(0f, rotation.y, 0f);
 
+
+        if (fireCountdown<= 0f)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+
+
+            fireCountdown -= Time.deltaTime;
+        }
     }
 
+
+    void Shoot()
+    {
+        Debug.Log("SHOOT");
+    }
 
 
     private void OnDrawGizmosSelected()
