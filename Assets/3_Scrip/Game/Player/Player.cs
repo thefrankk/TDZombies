@@ -8,6 +8,8 @@ public class Player : MovableEntity
     private Rigidbody rb;
     private Vector3 movement;
 
+    public GameObject bombPrefab;
+    private float detonationTime = 3f;
 
     private void Start()
     {
@@ -30,6 +32,22 @@ public class Player : MovableEntity
     protected override void MoveEntity()
     {
         rb.MovePosition(transform.position + movement * _speedMovement * Time.deltaTime);
+
+    }
+
+    void InstanciarBomba()
+    {
+        Invoke("DetonarBomba", detonationTime);
+    }
+
+    void DetonarBomba()
+    {
+        GameObject bomba = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+        Bomba bombaScript = bomba.GetComponent<Bomba>();
+        if (bombaScript != null)
+        {
+            Invoke("Detonar", detonationTime);
+        }
     }
 }
 

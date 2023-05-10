@@ -9,19 +9,21 @@ public class Turret_GRAL : MonoBehaviour
 {
     public Transform target;
     public float range= 15f;
-    public float damage;
-    public string enemyTag = "Enemy";
+     public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
     public float fireRate = 1f;
-    private float fireCountdown = 0f;
+    private float fireCountdown = 1f;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
      
 
 
     private void Start()
     {
-        InvokeRepeating("Updatetarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 2.0f, 0.3f);
     }
     void UpdateTarget()
     {
@@ -62,20 +64,26 @@ public class Turret_GRAL : MonoBehaviour
         partToRotate.rotation =Quaternion.Euler(0f, rotation.y, 0f);
 
 
-        if (fireCountdown<= 0f)
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
-
-
-            fireCountdown -= Time.deltaTime;
         }
+        
+        fireCountdown -= Time.deltaTime;
+
     }
 
 
     void Shoot()
     {
-        Debug.Log("SHOOT");
+       GameObject bulletBoom = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        Bullet bullet = bulletBoom.GetComponent<Bullet>();
+        if (bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 
 
