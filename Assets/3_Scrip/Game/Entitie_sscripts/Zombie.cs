@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Zombie : MonoBehaviour
+public class Zombie : MovableEntity
 {
     public float life;
     public float speed;
@@ -14,10 +14,11 @@ public class Zombie : MonoBehaviour
     private float timeFrozen = 0f;
 
     public Action OnEnemyDestroyed;
+    private MovableEntity _movableEntityImplementation;
 
     void Start()
     {
-
+        _speedMovement = 3.5f;
         _aim = FindObjectOfType<EndDestination>().gameObject;
         /*  // Seleccionar un Objetivo al azar
           int randomaim = Random.Range(0, 3);
@@ -35,8 +36,7 @@ public class Zombie : MonoBehaviour
                   break;
           }*/
 
-        navMeshAgent.destination = _aim.transform.position;
-
+        MoveEntity();
     }
 
     #region//Metodo de congelado y descongelado
@@ -134,5 +134,18 @@ public class Zombie : MonoBehaviour
         Debug.Log("EnemyDestroyed");
         OnEnemyDestroyed?.Invoke();
         
+    }
+
+    public override void SetSpeedMovement(float speed)
+    {
+        base.SetSpeedMovement(speed);
+        MoveEntity();
+    }
+    
+    protected override void MoveEntity()
+    {
+        navMeshAgent.destination = _aim.transform.position;
+        navMeshAgent.speed = _speedMovement;
+
     }
 }

@@ -5,48 +5,19 @@ using UnityEngine;
 public class Zombie_Armor : Zombie
 {
 
-    public float armor;
+        public int vida = 100;
+    public float porcentajeProteccion = 0.6f;
 
-    void Start()
+    public void RecibirDanio(int cantidadDanio)
     {
-        // Generar un número aleatorio entre 0 y 100 para la armadura 
-        GenerarArmadura(out armor);
-    }
+        int danioFinal = Mathf.RoundToInt(cantidadDanio * (1f - porcentajeProteccion));
+        vida -= danioFinal;
 
-    // Método para generar la armadura y asignarla a la variable armor utilizando la palabra clave out.
-    private void GenerarArmadura(out float armorValue)
-    {
-        if (Random.Range(0f, 1f) < 0.5f)
+        if (vida <= 0)
         {
-            armorValue = Random.Range(0f, 100f);
+            // El enemigo ha sido derrotado
+            Destroy(gameObject);
         }
-        else
-        {
-            armorValue = 0f;
-        }
-    }
-
-    public void RecibirDaño(float damage_torreta)
-    {
-        // Calcular el daño real considerando la armadura
-        float acurrate_damage = damage_torreta;
-
-        if (armor > 0)
-        {
-            acurrate_damage *= (1 - armor / 100);
-        }
-
-        life -= acurrate_damage;
-
-        if (life <= 0)
-        {
-            Morir();
-        }
-    }
-
-    void Morir()
-    {
-        Destroy(gameObject);
     }
 }
 

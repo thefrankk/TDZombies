@@ -2,69 +2,89 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class Turret_GRAL : MonoBehaviour
 {
-    public GameObject arrowPrefab;
-    public float radius = 10f;
-    public float fireDelay = 5f;
-    private Transform target;
-    
-    private void Update()
-    {
-       /* // Si hay un objetivo actual, lo seguimos con la torreta
-        if (target != null)
-        {
-            // Rotamos la torreta hacia el objetivo
-            Vector3 direction = target.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10f);
+    public Transform target;
+    public float range= 15f;
+    public float damage;
+    public string enemyTag = "Enemy";
+    public Transform partToRotate;
+    public float turnSpeed = 10f;
 
-            // Si el objetivo está fuera del radio, lo perdemos
-            if (direction.magnitude > radius)
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+     
+
+
+    private void Start()
+    {
+        InvokeRepeating("Updatetarget", 0f, 0.5f);
+    }
+    void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearesEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy<shortestDistance)
             {
-                target = null;
+                shortestDistance = distanceToEnemy;
+                nearesEnemy = enemy;
             }
         }
-        // Si no hay un objetivo actual, buscamos uno dentro del radio
+
+        if (nearesEnemy != null && shortestDistance <= range)
+        {
+            target = nearesEnemy.transform;
+        }
         else
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-            float closestDistance = Mathf.Infinity;
+            target = null;
+        }
 
-            foreach (Collider collider in colliders)
-            {
-                // Si el collider tiene el tag "Enemy", lo consideramos como objetivo
-                if (collider.CompareTag("Enemy"))
-                {
-                    // Calculamos la distancia entre la torreta y el enemigo
-                    float distance = (collider.transform.position - transform.position).magnitude;
+    }
 
-                    // Si el enemigo está dentro del radio y es el más cercano lo seleccionamos como objetivo
-                    if (distance < radius && distance < closestDistance)
-                    {
-                        closestDistance = distance;
-                        target = collider.transform;
-                    }
-                }
-            }
-        }*/
+    private void Update()
+    {
+        if (target == null)
+            return;
 
-        //  tiempo de espera, disparamos 
-        if (target != null && Time.time > fireDelay)
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = lookRotation.eulerAngles;
+        partToRotate.rotation =Quaternion.Euler(0f, rotation.y, 0f);
+
+
+        if (fireCountdown<= 0f)
         {
-            // Creamos una instancia de la flecha en la posición de la torreta
-            GameObject arrowInstance = Instantiate(arrowPrefab, transform.position, transform.rotation);
+            Shoot();
+            fireCountdown = 1f / fireRate;
 
-            // Hacemos que la flecha mire hacia el objetivo
-            Vector3 direction = target.position - arrowInstance.transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            arrowInstance.transform.rotation = rotation;
 
-            // Reseteamos el tiempo de espera
-            fireDelay = Time.time + 5f;
+            fireCountdown -= Time.deltaTime;
         }
     }
+
+
+    void Shoot()
+    {
+        Debug.Log("SHOOT");
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
 }
+
 

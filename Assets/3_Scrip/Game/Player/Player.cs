@@ -2,32 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MovableEntity
 {
     public float speed;
     private Rigidbody rb;
-    private Vector3 movemente;
+    private Vector3 movement;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _speedMovement = 5f;
+
     }
 
     private void Update()
     {
-        movemente = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
     }
 
     private void FixedUpdate()
     {
-        MoverJugador();
+        MoveEntity();
     }
 
-    void MoverJugador()
+   
+    protected override void MoveEntity()
     {
-        //rb.MovePosition(transform.position + movemente * speed * Time.deltaTime);
-        //transform.rotation = Quaternion.LookRotation(movemente);
+        rb.MovePosition(transform.position + movement * _speedMovement * Time.deltaTime);
     }
 }
 
