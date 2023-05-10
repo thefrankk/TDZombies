@@ -7,21 +7,65 @@ using System.Linq;
 
 public class Turret_GRAL : MonoBehaviour
 {
-    public float buyPrice;
-    public float sellPrice;
+    public float range= 15f;
+    public float damage;
+    public float timeShoot = 1;
+    public string enemyTag = "Enemy";
 
+    private Transform target;
+    public Transform partToRotate;
 
-    public LayerMask layerDetection;
-    public float range;
-    public Zombie currentTarget;
-    public List<Zombie> currentTargets = new List<Zombie>();
-
-    private void EnemyDetection()
+    private void Start()
     {
-        var enemy = Physics.OverlapSphere(transform.position, range).where(currentEnemy.Getcomponent<Zombie>())
+        InvokeRepeating("Updatetarget", 0f, 0.5f);
+    }
+    void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearesEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy<shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearesEnemy = enemy;
+            }
+        }
+
+        if (nearesEnemy != null && shortestDistance <= range)
+        {
+            target = nearesEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }
 
     }
 
+    private void Update()
+    {
+        if (target == null)
+            return;
+
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = lookRotation.eulerAngles;
+        partToRotate.rotation =Quaternion.Euler(0f, rotation.y, 0f);
+
+    }
+
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 
 }
 
