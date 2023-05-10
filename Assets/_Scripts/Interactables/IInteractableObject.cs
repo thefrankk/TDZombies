@@ -10,4 +10,6 @@ public interface IInteractableObject
     public bool CanInteract{ get; set; }
     public void InjectDependencies(IInteractableReceiver interactableReceiver);
     public void Interact();
+
+    public Transform GetObjectTransform();
 }

@@ -12,8 +12,8 @@ public class Spikes : MonoBehaviour, IInteractableReceiver
 
     private float _currentTime;
 
-    public float YPosStart { get => transform.position.y - 0.2f; }
-    public float YPosEnd { get => transform.position.y + 0.2f; }
+    public float YPosStart { get => transform.position.y - 0.5f; }
+    public float YPosEnd { get => transform.position.y + 0.5f; }
     
     public int Id => _id;
 
@@ -61,5 +61,11 @@ public class Spikes : MonoBehaviour, IInteractableReceiver
         interactableObject.InjectDependencies(this);
     }
 
-  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Zombie>(out Zombie zombie))
+        {
+            Destroy(zombie.gameObject);
+        }
+    }
 }

@@ -6,35 +6,42 @@ using System;
 
 public abstract class PowerUp : MonoBehaviour 
 {
-    private float _duration = 0;
+    protected float _duration = 5;
 
 
-    public virtual void StartPowerUp(float duration, Player player)
+    public virtual void StartPowerUp<T>(float duration, T entity)
     {
 
         startTimer(duration, () =>
         {
-            stopPowerUp();
+            stopPowerUp(entity);
         });
 
-        applyPowerUp(player);
+        applyPowerUp<T>(entity);
     }
 
-    protected abstract void applyPowerUp(Player player);
+    protected abstract void applyPowerUp<T>(T entity);
     private async void startTimer(float duration, Action callback)
     {
         await Task.Delay(Mathf.CeilToInt(duration * 1000));
         callback?.Invoke();
     }
 
-    protected abstract void stopPowerUp();
+    protected abstract void stopPowerUp<T>(T entity);
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-      if(other.TryGetComponent<Player>(out Player entity))
-        {
-            StartPowerUp(_duration, entity);
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     Debug.Log("On trigger entered");
+    //
+    //   if(other.TryGetComponent<Player>(out Player entity))
+    //     {
+    //         StartPowerUp(_duration, entity);
+    //     }
+    // }
+
+    protected abstract void OnTriggerEnter(Collider other);
+
+
+
 }

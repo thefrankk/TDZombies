@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LifeEntities : MonoBehaviour
-{   public float life;
+{   
+    private float _life;
     public float damage;
     public float speed;
 
+    public float Life => _life;
 
     public void ReceiveDamage(float damageTaken)
     {
-        life -= damageTaken;
-        if (life <= 0f)
+        _life -= damageTaken;
+        if (_life <= 0f)
         {
             Die();
         }
     }
 
+    public virtual void SetLife(float life)
+    {
+        _life = life;
+    }
     protected virtual void Die()
     {
-        // Agregar animación de muerte pendiente
+        // Agregar animaciÃ³n de muerte pendiente
         Destroy(gameObject);
     }
 }

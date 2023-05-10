@@ -1,36 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Player : LifeEntities
+
+public class Player : MovableEntity
 {
+    public float speed;
     private Rigidbody rb;
     private Vector3 movement;
+
     public GameObject bombPrefab;
     private float detonationTime = 3f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _speedMovement = 5f;
+
     }
 
     private void Update()
     {
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            InstanciarBomba();
-        }
     }
 
     private void FixedUpdate()
     {
-        MoverJugador();
+        MoveEntity();
     }
 
-    void MoverJugador()
+   
+    protected override void MoveEntity()
     {
-        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+        rb.MovePosition(transform.position + movement * _speedMovement * Time.deltaTime);
+
     }
 
     void InstanciarBomba()
@@ -48,8 +50,5 @@ public class Player : LifeEntities
         }
     }
 }
-
-
-
 
 
