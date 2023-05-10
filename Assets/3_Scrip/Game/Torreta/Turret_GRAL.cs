@@ -9,13 +9,15 @@ public class Turret_GRAL : MonoBehaviour
 {
     public Transform target;
     public float range= 15f;
-    public float damage;
-    public string enemyTag = "Enemy";
+     public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
      
 
 
@@ -75,7 +77,13 @@ public class Turret_GRAL : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("SHOOT");
+       GameObject bulletBoom = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        Bullet bullet = bulletBoom.GetComponent<Bullet>();
+        if (bullet !=null)
+        {
+            bullet.Seek(target);
+        }
     }
 
 

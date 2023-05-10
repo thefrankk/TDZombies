@@ -5,8 +5,8 @@ public class Player : LifeEntities
 {
     private Rigidbody rb;
     private Vector3 movement;
-
     public GameObject bombPrefab;
+    private float detonationTime = 3f;
 
     private void Start()
     {
@@ -35,14 +35,20 @@ public class Player : LifeEntities
 
     void InstanciarBomba()
     {
+        Invoke("DetonarBomba", detonationTime);
+    }
+
+    void DetonarBomba()
+    {
         GameObject bomba = Instantiate(bombPrefab, transform.position, Quaternion.identity);
         Bomba bombaScript = bomba.GetComponent<Bomba>();
         if (bombaScript != null)
         {
-            bombaScript.Detonar();
+            Invoke("Detonar", detonationTime);
         }
     }
 }
+
 
 
 
