@@ -1,31 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button : MonoBehaviour, IInteractableObject
+public class Button : InteractableObject
 {
-    [SerializeField] private int _id;
     [SerializeField] private float _delay;
 
-    IInteractableReceiver receiver;
-
-    public int Id { get => _id; }
-
+    private MovableEntity _movableEntity;
+   
     public float DelayToInteract => _delay;
 
     public float CurrentTime { get; set; }
-    public bool CanInteract { get; set; }
 
     private int _currentTime;
 
-    public void InjectDependencies(IInteractableReceiver interactableReceiver)
-    {
-        receiver = interactableReceiver;
-    }
+    
 
-    public void Interact()
+    private void Start()
     {
-        receiver.DoAction();
+        CanInteract = true;
     }
 
     public Transform GetObjectTransform()
@@ -35,24 +29,40 @@ public class Button : MonoBehaviour, IInteractableObject
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanInteract)
-        {
-            Interact();
-            CanInteract = false;
-            CurrentTime = DelayToInteract;
+        if (_movableEntity == null)
+            return;
 
+        if (Input.GetKeyUp(KeyCode.E) && CanInteract)
+        {
+            Debug.LogWarning("Interact");
+            Interact();
+            CurrentTime = DelayToInteract;
         }
 
         if (!CanInteract)
         {
             CurrentTime -= Time.deltaTime;
 
-            if(CurrentTime < 0)
+            if (CurrentTime < 0)
             {
                 CanInteract = true;
                 CurrentTime = DelayToInteract;
             }
         }
-
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<MovableEntity>(out MovableEntity obj))
+        {
+            _movableEntity = obj;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _movableEntity = null;
+    }
+
+
 }
