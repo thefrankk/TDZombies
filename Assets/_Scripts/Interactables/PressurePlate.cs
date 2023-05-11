@@ -17,6 +17,7 @@ public class PressurePlate : InteractableObject
 
     private void OnTriggerExit(Collider other)
     {
+        Interact();
         CanInteract = true;
     }
 }

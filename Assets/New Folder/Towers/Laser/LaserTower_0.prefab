@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4123545054233330}
+  - component: {fileID: -3511292135474014960}
   m_Layer: 10
   m_Name: LaserTower_0
   m_TagString: Untagged
@@ -33,6 +34,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3511292135474014960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161251386251526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b8a54f347b20c42914ca79960d095a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  range: 15
+  enemyTag: Enemy
+  partToRotate: {fileID: 4772094725469776}
+  turnSpeed: 10
+  fireRate: 1
+  bulletPrefab: {fileID: 7752847938668186533, guid: c0d3f6cac288b864fa7a62d34292c188,
+    type: 3}
+  firePoint: {fileID: 4820288120695166}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,4 +24,13 @@ HOURS
 MINUTES
 }
 
+abstract class InteractableObject
+{
+
+
+}
+
+abstract class InteractablePressed;
+
+InteractableObject <|- InteractablePressed
 @enduml
