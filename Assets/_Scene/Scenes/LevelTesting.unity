@@ -9986,12 +9986,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speed: 5
-  projectile: {fileID: 4050167549393724844, guid: 1dbb44b3b2184d24ea814582393e4a90,
+  axePrefab: {fileID: 4050167549393724844, guid: 1dbb44b3b2184d24ea814582393e4a90,
     type: 3}
-  speedProj: 10
-  spawnProjPoint: {fileID: 1505034481}
-  navMeshAgent: {fileID: 1473490605}
+  axeSpawnPoint: {fileID: 1505034481}
   shootInterval: 3
+  speedProj: 10
 --- !u!195 &1473490605
 NavMeshAgent:
   m_ObjectHideFlags: 0
