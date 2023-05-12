@@ -5,18 +5,20 @@ using UnityEngine;
 public class KamikazeBird : MonoBehaviour
 {
     public GameObject target;
-    public float circleRadius=5f;
-    public float circuleSpeed = 2f;
+    public float circleRadius = 5f;
+    public float circleSpeed = 2f;
     public float diveSpeed = 10f;
     public float delayBeforeSpawn = 10f;
-   
+
     private float timer = 0f;
     private bool weary = true;
     private Vector3 initialPosition;
+    private int numCircle = 0;
+    private int maxCircle = 1;
+
 
     private void Start()
     {
-        int x = Random.Range(-22, 14);
         initialPosition = new Vector3(0f, 5f, 0f);
         MoveInCircle();
 
@@ -26,28 +28,38 @@ public class KamikazeBird : MonoBehaviour
     void MoveInCircle()
     {
         weary = true;
+        numCircle = 0;
     }
 
 
-private void Update()
+    private void Update()
     {
         if (weary)
         {
-            
-            float angle = Time.time * circuleSpeed;
+
+            float angle = Time.time * circleSpeed;
             float x = Mathf.Sin(angle) * circleRadius;
             float z = Mathf.Cos(angle) * circleRadius;
             transform.position = new Vector3(x, initialPosition.y, z);
-                     
+
+            if (Mathf.Abs(angle) >= 2f * Mathf.PI)
+            {
+                numCircle++;
+
+                if (numCircle >= maxCircle)
+                {
+                    weary = false;
+                }
+            }
         }
         else
         {
-            if (target !=null)
+            if (target != null)
             {
                 Vector3 direction = target.transform.position - transform.position;
                 transform.Translate(direction.normalized * diveSpeed * Time.deltaTime);
 
-                if (Vector3.Distance (transform.position, target.transform.position)<0.5f)
+                if (Vector3.Distance(transform.position, target.transform.position) < 0.5f)
                 {
                     Destroy(target);
                     Destroy(gameObject);
