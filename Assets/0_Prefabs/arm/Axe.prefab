@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4050167549393724846}
   - component: {fileID: 4050167549393724847}
   - component: {fileID: 7709045015487297107}
-  - component: {fileID: 7874765394874110128}
+  - component: {fileID: -3955399672349029258}
   m_Layer: 0
   m_Name: Axe
   m_TagString: EnemyProjectile
@@ -215,7 +215,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7874765394874110128
+--- !u!114 &-3955399672349029258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,6 +224,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4050167549393724844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef9f760ffe4dea34a8b8e23b7790470f, type: 3}
+  m_Script: {fileID: 11500000, guid: fca49937566bae54ca39f3bf0df75b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedAxe: 10
+  rotationSpeed: 50
+  isRotating: 1

@@ -3,38 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy_Shooter :LifeEntities
+public class Enemy_Shooter : LifeEntities
 {
-    public GameObject projectile;
+    public GameObject axePrefab;
+    public Transform axeSpawnPoint;
+    public float shootInterval = 3f;
     public float speedProj = 10f;
-    public Transform spawnProjPoint;
     private Transform playerPosition;
-    public NavMeshAgent navMeshAgent;
-
+    private NavMeshAgent navMeshAgent;
+    private float shootTimer = 0f;
 
     void Start()
     {
         playerPosition = FindObjectOfType<Player>().transform;
-
-        Invoke("ShootPlayer", 3);
-    
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
-
 
     void Update()
     {
-        
+        if (playerPosition != null)
+        {
+            navMeshAgent.SetDestination(playerPosition.position);
+        }
+
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= shootInterval)
+        {
+            InvokeRepeating("ShootPlayer", shootInterval, shootInterval);
+            shootTimer = 0f;
+        }
     }
 
     void ShootPlayer()
     {
-        Vector3 playerdirection = playerPosition.position - transform.position;
-        GameObject newProjectile;
-
-        newProjectile = Instantiate(projectile, spawnProjPoint.position, spawnProjPoint.rotation);
-
-        newProjectile.GetComponent<Rigidbody>().AddForce(playerdirection* speedProj ,ForceMode.Force);
-
-        Invoke("ShootPlayer", 3);
+        
+        if (Vector3.Distance(transform.position, playerPosition.position) <= navMeshAgent.stoppingDistance)
+        {
+            GameObject newAxe = Instantiate(axePrefab, axeSpawnPoint.position, axeSpawnPoint.rotation);
+            Rigidbody axeRigidbody = newAxe.GetComponent<Rigidbody>();
+            axeRigidbody.velocity = axeSpawnPoint.forward * speedProj;
+        }
     }
 }
+

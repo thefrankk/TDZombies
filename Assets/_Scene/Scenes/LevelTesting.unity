@@ -9986,11 +9986,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speed: 5
-  projectile: {fileID: 4378767651863147228, guid: 1bfe985def434d8499b5ef5bd7c1c2e7,
+  projectile: {fileID: 4050167549393724844, guid: 1dbb44b3b2184d24ea814582393e4a90,
     type: 3}
   speedProj: 10
   spawnProjPoint: {fileID: 1505034481}
   navMeshAgent: {fileID: 1473490605}
+  shootInterval: 3
 --- !u!195 &1473490605
 NavMeshAgent:
   m_ObjectHideFlags: 0
