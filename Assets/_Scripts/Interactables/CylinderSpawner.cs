@@ -43,7 +43,8 @@ public class CylinderSpawner : Spawner, IInteractableReceiver
 
     public void FindInteractableSender()
     {
-        IInteractableObject interactableObject = FindObjectsOfType<MonoBehaviour>().GetInteractableObject(Id);
+       // IInteractableObject interactableObject = FindObjectsOfType<MonoBehaviour>().GetInteractableObject(Id);
+        InteractableObject interactableObject = GetComponentInParent<InteractableObject>();
         interactableObject.InjectDependencies(this);
     }
 

@@ -56,7 +56,7 @@ public class Spikes : MonoBehaviour, IInteractableReceiver
     }
     public void FindInteractableSender()
     {
-        IInteractableObject interactableObject = FindObjectsOfType<MonoBehaviour>().GetInteractableObject(Id);
+        InteractableObject interactableObject = FindObjectsOfType<InteractableObject>().FirstOrDefault(x => x.Id == Id);
 
         interactableObject.InjectDependencies(this);
     }
