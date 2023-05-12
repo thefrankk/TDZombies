@@ -18,11 +18,11 @@ public static class MoneyManager
     }
 
 
-    public static void TryToBuyItem(int amount, Action action)
+    public static void TryToBuyItem(int amount, Action callback)
     {
         if(amount >= Money)
         {
-            action?.Invoke();
+            callback?.Invoke();
             RemoveMoney(amount);
         }
         else

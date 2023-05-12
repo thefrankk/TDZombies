@@ -38,6 +38,8 @@ public class Zombie : MovableEntity
 
         MoveEntity();
     }
+    
+   
 
     #region//Metodo de congelado y descongelado
     public void Frozen(float time)

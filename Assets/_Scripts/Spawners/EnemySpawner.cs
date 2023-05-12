@@ -21,7 +21,7 @@ namespace _Scripts.Spawners
                 if (_enemyCount <= 0) OnEnemiesCleared?.Invoke();
             }
         }
-
+        
 
         protected override void Spawn()
         {
@@ -62,7 +62,12 @@ namespace _Scripts.Spawners
             StartCoroutine(SpawnTimer());
 
         }
-       
+        
+                    
+        
+        
+        
+        
 
         public void SetDelayBetweenEnemies(float delay) => _delayBetweenEnemies = delay;
     }
