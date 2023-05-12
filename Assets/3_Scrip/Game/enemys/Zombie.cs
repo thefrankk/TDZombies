@@ -7,8 +7,6 @@ using UnityEngine.AI;
 public class Zombie : MovableEntity
 {
     public float life;
-    public float speed;
-    public float damage;
     private GameObject _aim;
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
