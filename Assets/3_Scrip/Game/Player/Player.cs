@@ -20,12 +20,16 @@ public class Player : MovableEntity
 
     private void Update()
     {
+       
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
+        transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
+        transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime; 
     }
 
     private void FixedUpdate()
     {
-        MoveEntity();
+       // MoveEntity();
     }
 
    

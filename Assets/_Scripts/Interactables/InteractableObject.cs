@@ -21,7 +21,6 @@ public abstract class InteractableObject : MonoBehaviour
     {
         receiver.DoAction();
         CanInteract = false;
-
     }
 
 }

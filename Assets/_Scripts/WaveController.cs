@@ -5,6 +5,7 @@ using System.IO.Enumeration;
 using _Scripts.Spawners;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Threading;
 public class WaveController : MonoBehaviour
 {
 
@@ -14,13 +15,20 @@ public class WaveController : MonoBehaviour
     private float _secondsSpawning = 3;
     private float _delayBetweenEnemies = 1.5f;
 
-    private readonly float _secondsForWaitingNextRound = 20;
+    private readonly float _secondsForWaitingNextRound = 10;
     public int CurrentWave { get; private set; }
 
+    
+    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+    private CancellationToken _cancellationToken;
+
+    
     private void Awake()
     {
         StartWave();
         _enemySpawner.OnEnemiesCleared += configNextWave;
+        _cancellationToken = _cancellationTokenSource.Token;
+
     }
 
     public async void StartWave()
@@ -28,8 +36,17 @@ public class WaveController : MonoBehaviour
         _enemySpawner.SetDelayBetweenEnemies(_delayBetweenEnemies);
         _enemySpawner.StartSpawner();
 
-        await Task.Delay(Mathf.CeilToInt((_secondsSpawning) * 1000));
+        Debug.Log("Enemy Spawner Started");
+        await Task.Delay(Mathf.CeilToInt((_secondsSpawning) * 1000), _cancellationToken);
+        if (!Application.isPlaying)
+        {
+            _cancellationTokenSource.Cancel();
+            return;
+        }
+        
         EndWave();
+        Debug.Log("Enemy Spawner Ended");
+
     }
 
 
@@ -42,6 +59,7 @@ public class WaveController : MonoBehaviour
     {
         _secondsSpawning = Mathf.Clamp((_secondsSpawning + 1 ), 0, MaxSecondsSpawning);
         _delayBetweenEnemies = Mathf.Clamp((_delayBetweenEnemies - 0.2f ), MinDelayBetweenEnemies, 100);
+        
         NextWave();
     }
     public async void NextWave()

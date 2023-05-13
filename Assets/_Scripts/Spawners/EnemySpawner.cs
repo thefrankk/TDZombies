@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-
 namespace _Scripts.Spawners
 {
     public class EnemySpawner : Spawner
@@ -11,6 +10,9 @@ namespace _Scripts.Spawners
         private float _delayBetweenEnemies;
         [SerializeField] private int _enemyCount;
 
+        private IEnumerator coroutine;
+        
+       
         public event Action OnEnemiesCleared;
         public int EnemyCount
         {
@@ -21,7 +23,7 @@ namespace _Scripts.Spawners
                 if (_enemyCount <= 0) OnEnemiesCleared?.Invoke();
             }
         }
-
+        
 
         protected override void Spawn()
         {
@@ -38,18 +40,18 @@ namespace _Scripts.Spawners
 
             zombie.OnEnemyDestroyed += () => EnemyCount--;
             
-            Debug.Log(_enemyCount);
         }
 
         public override void StartSpawner()
         {
             _isActive = true;
-            StartCoroutine(SpawnTimer());
+            coroutine = SpawnTimer();
+            StartCoroutine(coroutine);
         }
 
         public override void StopSpawner()
         {
-            StopCoroutine((SpawnTimer()));
+            StopCoroutine(coroutine);
 
             _isActive = false;
         }
@@ -59,10 +61,16 @@ namespace _Scripts.Spawners
         {
             Spawn();
             yield return new WaitForSeconds(_delayBetweenEnemies);
-            StartCoroutine(SpawnTimer());
+            coroutine = SpawnTimer();
+            StartCoroutine(coroutine);
 
         }
-       
+        
+                    
+        
+        
+        
+        
 
         public void SetDelayBetweenEnemies(float delay) => _delayBetweenEnemies = delay;
     }

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     private bool _canAttack;
 
+    private int _bulletDamage = 25;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -18,23 +19,31 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if (_canAttack)
+        if (_canAttack && target != null)
         {
             Vector3 dir = target.position - transform.position;
             float distanceThisFrame = speed * Time.deltaTime;
 
             if (dir.magnitude <= distanceThisFrame)
             {
-                //  HitTarget();
+                HitTarget();
                 return;
             }
 
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void HitTarget()
     {
+        if(target.TryGetComponent(out LifeEntities entity))
+        {
+            entity.ReceiveDamage(_bulletDamage);
+        }
         Destroy(gameObject);
     }
 }
