@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour, IInteractableReceiver
@@ -14,6 +15,7 @@ public class Teleport : MonoBehaviour, IInteractableReceiver
 
     private void Awake()
     {
+        _objToTeleport = FindObjectOfType<Player>().transform;
         FindInteractableSender();
     }
 
@@ -22,29 +24,14 @@ public class Teleport : MonoBehaviour, IInteractableReceiver
         if (_objToTeleport == null)
             return;
 
-
-        _objToTeleport.transform.position = _target.transform.position;
+        _objToTeleport.transform.position = this.transform.position;
     }
 
     public void FindInteractableSender()
     {
-        IInteractableObject interactableObject = FindObjectsOfType<MonoBehaviour>().GetInteractableObject(Id);
+        InteractableObject interactableObject = FindObjectsOfType<InteractableObject>().FirstOrDefault(x => x.Id == Id);
+                                                                                        
         interactableObject.InjectDependencies(this);
-        _target = interactableObject.GetObjectTransform();
-
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent<Transform>(out Transform obj))
-        {
-            _objToTeleport = obj;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _objToTeleport = null;
-    }
 }
