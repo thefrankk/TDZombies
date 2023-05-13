@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36ef85b9c5203b4a9b0dfb2c88825a3, type: 3}
   m_Name: NormalTurret
   m_EditorClassIdentifier: 
-  _turretPrefab: {fileID: -3511292135474014960, guid: 6f6de38bc4946428ab2a1d468039753e,
+  _turretPrefab: {fileID: 697663625752567659, guid: 6f6de38bc4946428ab2a1d468039753e,
     type: 3}
   _costAmount: 0
   _upgradeCostAmount: 292

@@ -43,7 +43,6 @@ public class Bullet : MonoBehaviour
         if(target.TryGetComponent(out LifeEntities entity))
         {
             entity.ReceiveDamage(_bulletDamage);
-            Debug.Log("get damaged");
         }
         Destroy(gameObject);
     }

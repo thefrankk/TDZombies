@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KamikazeBird : MonoBehaviour
+public class KamizakeBird : MonoBehaviour
 {
     public GameObject target;
     public float circleRadius = 5f;
@@ -21,18 +21,9 @@ public class KamikazeBird : MonoBehaviour
     {
         initialPosition = new Vector3(0f, 5f, 0f);
         MoveInCircle();
-        
-    Invoke("setTarget", 10);
+ 
     }
 
-    private void setTarget()
-    {
-        target = FindObjectOfType<Turret_GRAL>()?.gameObject;
-        if (target == null)
-        {
-            Invoke("setTarget", 10);
-        }
-    }
 
     void MoveInCircle()
     {
@@ -83,8 +74,9 @@ public class KamikazeBird : MonoBehaviour
     {
         GameObject newKamikaze = Instantiate(gameObject, initialPosition, Quaternion.identity);
         newKamikaze.SetActive(true);
-        newKamikaze.GetComponent<KamikazeBird>().target = target;
+        newKamikaze.GetComponent<KamizakeBird>().target = target;
     }
 
 
 }
+

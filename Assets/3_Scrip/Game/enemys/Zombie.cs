@@ -145,6 +145,7 @@ public class Zombie : MovableEntity
     
     protected override void MoveEntity()
     {
+        if (navMeshAgent == null) return;
         navMeshAgent.destination = _aim.transform.position;
         navMeshAgent.speed = _speedMovement;
 

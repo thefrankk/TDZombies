@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 965194768878774292}
   - component: {fileID: 965194768878774295}
   - component: {fileID: 965194768878774294}
+  - component: {fileID: 9161429690927852997}
   m_Layer: 0
   m_Name: Sucker
   m_TagString: Untagged
@@ -122,6 +123,23 @@ NavMeshAgent:
   m_BaseOffset: 0.99999994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &9161429690927852997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965194768878774296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7362097d4d4a2384babdd7158183446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  speed: 0
+  player: {fileID: 0}
+  atractionSuckerP: 5
+  suckerPlayer: 0
 --- !u!1 &965194769248561340
 GameObject:
   m_ObjectHideFlags: 0

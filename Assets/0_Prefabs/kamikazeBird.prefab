@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5180945913940418409}
   - component: {fileID: 4354949939516506782}
   - component: {fileID: 844863740955118673}
+  - component: {fileID: -5391713347784392910}
   m_Layer: 0
   m_Name: kamikazeBird
   m_TagString: Untagged
@@ -97,3 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5391713347784392910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072310428325327516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00ab1664a5cacb4e8073837775a8add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  circleRadius: 5
+  circleSpeed: 2
+  diveSpeed: 10
+  delayBeforeSpawn: 10

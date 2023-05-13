@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-
 namespace _Scripts.Spawners
 {
     public class EnemySpawner : Spawner
@@ -12,6 +11,8 @@ namespace _Scripts.Spawners
         [SerializeField] private int _enemyCount;
 
         private IEnumerator coroutine;
+        
+       
         public event Action OnEnemiesCleared;
         public int EnemyCount
         {
@@ -50,7 +51,6 @@ namespace _Scripts.Spawners
 
         public override void StopSpawner()
         {
-            Debug.Log("sPAWNER ENDED");
             StopCoroutine(coroutine);
 
             _isActive = false;
@@ -60,10 +60,7 @@ namespace _Scripts.Spawners
         private IEnumerator SpawnTimer()
         {
             Spawn();
-            Debug.Log("spawning");
             yield return new WaitForSeconds(_delayBetweenEnemies);
-            Debug.Log("_delayBetweenEnemies" + _delayBetweenEnemies);
-            Debug.Log("spawning");
             coroutine = SpawnTimer();
             StartCoroutine(coroutine);
 
