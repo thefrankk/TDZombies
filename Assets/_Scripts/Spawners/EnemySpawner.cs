@@ -11,6 +11,7 @@ namespace _Scripts.Spawners
         private float _delayBetweenEnemies;
         [SerializeField] private int _enemyCount;
 
+        private IEnumerator coroutine;
         public event Action OnEnemiesCleared;
         public int EnemyCount
         {
@@ -38,18 +39,19 @@ namespace _Scripts.Spawners
 
             zombie.OnEnemyDestroyed += () => EnemyCount--;
             
-            Debug.Log(_enemyCount);
         }
 
         public override void StartSpawner()
         {
             _isActive = true;
-            StartCoroutine(SpawnTimer());
+            coroutine = SpawnTimer();
+            StartCoroutine(coroutine);
         }
 
         public override void StopSpawner()
         {
-            StopCoroutine((SpawnTimer()));
+            Debug.Log("sPAWNER ENDED");
+            StopCoroutine(coroutine);
 
             _isActive = false;
         }
@@ -58,8 +60,12 @@ namespace _Scripts.Spawners
         private IEnumerator SpawnTimer()
         {
             Spawn();
+            Debug.Log("spawning");
             yield return new WaitForSeconds(_delayBetweenEnemies);
-            StartCoroutine(SpawnTimer());
+            Debug.Log("_delayBetweenEnemies" + _delayBetweenEnemies);
+            Debug.Log("spawning");
+            coroutine = SpawnTimer();
+            StartCoroutine(coroutine);
 
         }
         

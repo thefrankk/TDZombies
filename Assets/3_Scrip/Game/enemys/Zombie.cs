@@ -7,8 +7,6 @@ using UnityEngine.AI;
 public class Zombie : MovableEntity
 {
     public float life;
-    public float speed;
-    public float damage;
     private GameObject _aim;
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
@@ -18,6 +16,7 @@ public class Zombie : MovableEntity
 
     void Start()
     {
+        _life = 125;
         _speedMovement = 3.5f;
         _aim = FindObjectOfType<EndDestination>().gameObject;
         /*  // Seleccionar un Objetivo al azar
@@ -44,33 +43,33 @@ public class Zombie : MovableEntity
     #region//Metodo de congelado y descongelado
     public void Frozen(float time)
     {
-        // Llamamos al método Descongelar utilizando una corrutina para esperar el tiempo de congelación.
+        // Llamamos al mï¿½todo Descongelar utilizando una corrutina para esperar el tiempo de congelaciï¿½n.
         StartCoroutine(UnFrozen(time));
 
-        // Desactivamos la navegación del enemigo.
+        // Desactivamos la navegaciï¿½n del enemigo.
         navMeshAgent.enabled = false;
     }
 
 
-    // Este método descongela al zombie y activa su navegación de nuevo.
+    // Este mï¿½todo descongela al zombie y activa su navegaciï¿½n de nuevo.
     private IEnumerator UnFrozen(float time )
     {
-        // Esperamos el tiempo de congelación.
+        // Esperamos el tiempo de congelaciï¿½n.
         yield return new WaitForSeconds(time);
 
-        // Activamos la navegación del zombie.
+        // Activamos la navegaciï¿½n del zombie.
         navMeshAgent.enabled = true;
     }
 
     private void Update()
     {
-        // Actualizamos el contador de tiempo congelado si es que el zombie está congelado.
+        // Actualizamos el contador de tiempo congelado si es que el zombie estï¿½ congelado.
         if (timeFrozen > 0f)
         {
             timeFrozen -= Time.deltaTime;
             if (timeFrozen <= 0f)
             {
-                // Llamamos al método UnFrozen utilizando una corrutina para esperar el tiempo de congelación.
+                // Llamamos al mï¿½todo UnFrozen utilizando una corrutina para esperar el tiempo de congelaciï¿½n.
                 StartCoroutine(UnFrozen(3f));
             }
         }
@@ -89,7 +88,7 @@ public class Zombie : MovableEntity
 
     #endregion
 
-  /* GENERAR DAÑO A LA TORRETA O PERSONA   
+  /* GENERAR DAï¿½O A LA TORRETA O PERSONA   
   
     public void InflictDamage(GameObject entity)
     {
@@ -127,7 +126,7 @@ public class Zombie : MovableEntity
 
     private void Die()
     {
-        // Agregar animación de muerte pendiente
+        // Agregar animaciï¿½n de muerte pendiente
         Destroy(gameObject);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LifeEntities : MonoBehaviour
 {   
-    private float _life;
+    protected float _life;
     public float damage;
     public float speed;
 

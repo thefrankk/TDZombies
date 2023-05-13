@@ -14,7 +14,7 @@ public class WaveController : MonoBehaviour
     private float _secondsSpawning = 3;
     private float _delayBetweenEnemies = 1.5f;
 
-    private readonly float _secondsForWaitingNextRound = 20;
+    private readonly float _secondsForWaitingNextRound = 10;
     public int CurrentWave { get; private set; }
 
     private void Awake()
@@ -28,8 +28,11 @@ public class WaveController : MonoBehaviour
         _enemySpawner.SetDelayBetweenEnemies(_delayBetweenEnemies);
         _enemySpawner.StartSpawner();
 
+        Debug.Log("Enemy Spawner Started");
         await Task.Delay(Mathf.CeilToInt((_secondsSpawning) * 1000));
         EndWave();
+        Debug.Log("Enemy Spawner Ended");
+
     }
 
 
@@ -42,6 +45,9 @@ public class WaveController : MonoBehaviour
     {
         _secondsSpawning = Mathf.Clamp((_secondsSpawning + 1 ), 0, MaxSecondsSpawning);
         _delayBetweenEnemies = Mathf.Clamp((_delayBetweenEnemies - 0.2f ), MinDelayBetweenEnemies, 100);
+        
+        Debug.Log(_secondsSpawning);
+        Debug.Log(_delayBetweenEnemies);
         NextWave();
     }
     public async void NextWave()
