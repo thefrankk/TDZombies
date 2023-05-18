@@ -115,20 +115,13 @@ public class Zombie : MovableEntity
             human.ReceiveDamage(damage);
         }
     }*/
-    public void ReceiveDamage(float damageTaken)
-    {
-        life -= damageTaken;
-        if (life <= 0f)
-        {
-            Die();
-        }
-    }
 
-    private void Die()
+  
+   /* private void Die()
     {
         // Agregar animaci�n de muerte pendiente
         Destroy(gameObject);
-    }
+    }*/
 
     private void OnDestroy()
     {
