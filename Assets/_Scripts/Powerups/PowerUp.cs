@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using System;
-
+using System.Threading.Tasks;
+using System.Threading;
 public abstract class PowerUp : MonoBehaviour 
 {
     protected float _duration = 5;
 
+    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+    private CancellationToken _cancellationToken;
+
+    private void Awake()
+    {
+        _cancellationToken = _cancellationTokenSource.Token;
+
+    }
 
     public virtual void StartPowerUp<T>(float duration, T entity)
     {
 
         startTimer(duration, () =>
         {
-            stopPowerUp(entity);
+            if (entity == null) return;
+              stopPowerUp(entity);
         });
 
         applyPowerUp<T>(entity);
@@ -24,6 +34,13 @@ public abstract class PowerUp : MonoBehaviour
     private async void startTimer(float duration, Action callback)
     {
         await Task.Delay(Mathf.CeilToInt(duration * 1000));
+
+        if (!Application.isPlaying)
+        {
+            _cancellationTokenSource.Cancel();
+            return;
+        }
+        
         callback?.Invoke();
     }
 

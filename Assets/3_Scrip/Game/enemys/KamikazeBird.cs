@@ -21,9 +21,18 @@ public class KamikazeBird : MonoBehaviour
     {
         initialPosition = new Vector3(0f, 5f, 0f);
         MoveInCircle();
-
+        
+    Invoke("setTarget", 10);
     }
 
+    private void setTarget()
+    {
+        target = FindObjectOfType<Turret_GRAL>()?.gameObject;
+        if (target == null)
+        {
+            Invoke("setTarget", 10);
+        }
+    }
 
     void MoveInCircle()
     {

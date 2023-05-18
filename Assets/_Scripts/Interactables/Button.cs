@@ -15,7 +15,6 @@ public class Button : InteractableObject
 
     private int _currentTime;
 
-    
 
     private void Start()
     {
@@ -34,7 +33,6 @@ public class Button : InteractableObject
 
         if (Input.GetKeyUp(KeyCode.E) && CanInteract)
         {
-            Debug.LogWarning("Interact");
             Interact();
             CurrentTime = DelayToInteract;
         }
