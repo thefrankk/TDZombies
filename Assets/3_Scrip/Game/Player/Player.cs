@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Player : MovableEntity
 {
-    public float speed;
     private Rigidbody rb;
     private Vector3 movement;
-
+    public Animator anim;
     public GameObject bombPrefab;
     private float detonationTime = 3f;
+    
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         _speedMovement = 5f;
+       
 
     }
 
@@ -24,7 +26,19 @@ public class Player : MovableEntity
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
         transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
-        transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime; 
+        transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime;
+
+        if (movement.x != 0)
+        {
+            anim.SetBool("Move", true);
+        }
+        else
+        {
+            anim.SetBool("Move", false);
+        }
+
+
+
     }
 
     private void FixedUpdate()
