@@ -17,7 +17,7 @@ public abstract class InteractableObject : MonoBehaviour
         receiver = interactableReceiver;
     }
 
-    protected void Interact()
+    protected void Interact() 
     {
         receiver.DoAction();
         CanInteract = false;

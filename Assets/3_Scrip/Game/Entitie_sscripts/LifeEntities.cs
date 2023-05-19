@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class LifeEntities : MonoBehaviour
     protected virtual void Die()
     {
         // Agregar animación de muerte pendiente
-        Destroy(gameObject);
+       Destroy(this.gameObject);
+
+       
     }
 }

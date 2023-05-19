@@ -25,6 +25,7 @@ public class WaveController : MonoBehaviour
     
     private void Awake()
     {
+        
         StartWave();
         _enemySpawner.OnEnemiesCleared += configNextWave;
         _cancellationToken = _cancellationTokenSource.Token;
@@ -49,6 +50,11 @@ public class WaveController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+            Cursor.lockState = CursorLockMode.Locked;
+    }
 
     public void EndWave()
     {
