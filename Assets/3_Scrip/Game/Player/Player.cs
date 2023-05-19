@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class Player : MovableEntity, ICameraControllable
 {
-    public float speed;
     private Rigidbody rb;
     private Vector3 movement;
-
+    public Animator anim;
     public GameObject bombPrefab;
     private float detonationTime = 3f;
     
     
+
     //Camera settings
     private float _distance = 5.0f;
     private float _height = 2.0f;
@@ -31,12 +31,14 @@ public class Player : MovableEntity, ICameraControllable
             Destroy(this.gameObject);
     }
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         _speedMovement = 5f;
         
         CameraController.Instance.SetTarget(this);
+       
 
     }
 
@@ -48,7 +50,19 @@ public class Player : MovableEntity, ICameraControllable
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
         transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
-        transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime; 
+        transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime;
+
+        if (movement.x != 0)
+        {
+            anim.SetBool("Move", true);
+        }
+        else
+        {
+            anim.SetBool("Move", false);
+        }
+
+
+
     }
 
    

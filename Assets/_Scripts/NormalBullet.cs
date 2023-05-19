@@ -16,7 +16,7 @@ public class NormalBullet : Bullets
     
     private void Awake()
     {
-        _speed = 33f;
+        _speed = 30f;
         _damage = 10f;
         _rb = GetComponent<Rigidbody>();
     }
@@ -24,7 +24,7 @@ public class NormalBullet : Bullets
     public void ApplyForce(Vector3 dir)
     {
         _dir = dir;
-        _rb.AddForce(_dir.normalized * _speed, ForceMode.Impulse);
+       _rb.AddForce(_dir.normalized * _speed, ForceMode.Impulse);
         
     }
 

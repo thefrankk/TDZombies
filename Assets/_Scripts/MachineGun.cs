@@ -33,11 +33,10 @@ public class MachineGun : MonoBehaviour, IInteractableReceiver, ICameraControlla
         if (Input.GetMouseButtonDown(0))
         {
             // if (_fireRateCountdown > 0) return;
-            Debug.Log("hola");
-            NormalBullet bullet = Instantiate(_bullet, _firePoint.position, transform.rotation);
-            bullet.ApplyForce(-_firePoint.transform.forward);
+            NormalBullet bullet = Instantiate(_bullet, _firePoint.position, _firePoint.rotation);
+            bullet.ApplyForce(_firePoint.transform.forward);
 
-            if (Physics.Raycast(_firePoint.position, -_firePoint.transform.forward, out RaycastHit hit, 1000f, _layerMask)) 
+            if (Physics.Raycast(_firePoint.position, _firePoint.transform.forward, out RaycastHit hit, 1000f, _layerMask)) 
             {
                 bullet.HitTarget(hit.transform);
             }

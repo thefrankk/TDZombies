@@ -11,6 +11,8 @@ public class Zombie : MovableEntity
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
 
+    private int _reward = 100;
+
     public Action OnEnemyDestroyed;
     private MovableEntity _movableEntityImplementation;
 
@@ -126,6 +128,7 @@ public class Zombie : MovableEntity
     private void OnDestroy()
     {
         Debug.Log("EnemyDestroyed");
+        MoneyManager.AddMoney(_reward);
         OnEnemyDestroyed?.Invoke();
         
     }

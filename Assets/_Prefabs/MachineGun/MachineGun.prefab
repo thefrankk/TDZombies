@@ -967,9 +967,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74dd4a16067852443939a870e9789fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 0}
+  _bullet: {fileID: 1200307904695695045, guid: cc9daf125aea4204fb9358cf9a47a49e, type: 3}
   _cameraPosition: {fileID: 4479843382735890517}
   _firePoint: {fileID: 4576024124750912818}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &4574280766095055103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,14 +1993,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8328232062709630912}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.0018461741, y: 0.13795221, z: -0.0059144115, w: 0.99041957}
   m_LocalPosition: {x: 0.264, y: 2.194, z: 0.966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3463441346160183481}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.116, y: 15.86, z: -0.7}
 --- !u!1 &8465257678626153688
 GameObject:
   m_ObjectHideFlags: 0
