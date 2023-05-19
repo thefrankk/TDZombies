@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MovableEntity, ICameraControllable
 {
@@ -52,13 +53,22 @@ public class Player : MovableEntity, ICameraControllable
         transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
         transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime;
 
-        if (movement.x != 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("Move", true);
+            anim.Play("Run_animation");
+        }
+     
+        else if (Input.GetKey(KeyCode.D))
+        {
+            anim.Play("RightSide");
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            anim.Play("LeftSide");
         }
         else
         {
-            anim.SetBool("Move", false);
+            anim.Play("IDDLE");
         }
 
 
