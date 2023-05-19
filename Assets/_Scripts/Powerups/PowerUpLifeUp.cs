@@ -26,6 +26,7 @@ public class PowerUpLifeUp : PowerUp
     {
         if (other.TryGetComponent<LifeEntities>(out LifeEntities entity))
         {
+            Debug.Log("On trigger entered");
             StartPowerUp<LifeEntities>(_duration, entity);
         }
     }

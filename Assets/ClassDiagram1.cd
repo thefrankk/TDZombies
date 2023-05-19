@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Axe_Bullet" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiCAAAAEAAAAAAAAAAAAAAIIAABAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Axe_Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bomba" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAABAAAAIIAAAAAAAAAAAAAAAAAAAAEEQAAAAAAEA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Bomba.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAKAAAAAAAAAAAAQAAAAAAAEACAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEgCAAAAABAAAAAAAAAQAAAIAAQAAAgAAAAIA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cylinder" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\Cylinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CylinderSpawner" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAIAAFAAAAAAAAKAAAAAAAAAQAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\CylinderSpawner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EndDestination" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\EndDestination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy_Shooter" Collapsed="true">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQEAAASAAAAAAAAAAAAAAAAAAAAAAAAICAAAggAE=</HashCode>
+      <FileName>Assets\3_Scrip\Game\enemys\Enemy_Shooter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyBullet" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\EnemyBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExtensionMethods" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\ExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Frozen_Turret" Collapsed="true">
+    <Position X="12.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAABAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Frozen_Turret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InteractableObject" Collapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAABAAAAAIAAAAAAABBAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\InteractableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KamizakeBird" Collapsed="true">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGQAAAgAAGAAAAAAIgCwAAAAAAAIAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Entitie_sscripts\KamizakeBird.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeEntities" Collapsed="true">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAgAAgAAEAAAAAAAAAAQAAAAAAAAABEAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Entitie_sscripts\LifeEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manager" Collapsed="true">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Player\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovableEntity" Collapsed="true">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQABAAAAAAAAAAAgAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Player\MovableEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectPool" Collapsed="true">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAoAAAAAFAEAAAIABAAAACQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\3_Scrip\tool\ObjectPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plant" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Plant\Plant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAiAEAAAEBAAAAIAAAAAAAQAAAEAAAAAgAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PowerUp" Collapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAEAAAAAAAAAACQAEACAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Powerups\PowerUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PowerUpLifeUp" Collapsed="true">
+    <Position X="10.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAYAEACAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Powerups\PowerUpLifeUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PowerUpSpeedMovement" Collapsed="true">
+    <Position X="12.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAQAEACAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Powerups\PowerUpSpeedMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressurePlate" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\PressurePlate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Scripts.Spawners.EnemySpawner" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAABBAAAIABEAAAAAAAACAQAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\_Scripts\Spawners\EnemySpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawner" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIEIEAAAAAAAACAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Spawners\Spawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawner_Bullet" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAABAAAAAAAAAEgABAAAABAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Spawner_Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spikes" Collapsed="true">
+    <Position X="11" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAABAAAAAAQgIAAAAQAQAAQEAAGA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\Spikes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Teleport" Collapsed="true">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAABAAABAQAAIAAAAAAAAAQAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\Teleport.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Turret_GRAL" Collapsed="true">
+    <Position X="12.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAUAAAAIACIABIAAIAAACAAAAAAAAAAAAgAgAAACAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Armas\Turret_GRAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WaveController" Collapsed="true">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAACAAAAAACAAIQAAAAAAAAEAAAAAEBAAFEA=</HashCode>
+      <FileName>Assets\_Scripts\WaveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zombie" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUBAAAAACiAAAAoBAAAAAAAAAAASAABAAACAAAoAAI=</HashCode>
+      <FileName>Assets\3_Scrip\Game\enemys\Zombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zombie_Armor" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAI=</HashCode>
+      <FileName>Assets\3_Scrip\Game\enemys\Zombie_Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IInteractableObject" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAgAAAAAABAAAAAAAAIAAAAAAAABAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\IInteractableObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IInteractableReceiver" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Interactables\IInteractableReceiver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

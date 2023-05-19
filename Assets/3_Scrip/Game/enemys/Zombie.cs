@@ -11,8 +11,6 @@ public class Zombie : MovableEntity
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
 
-    private int _reward = 100;
-
     public Action OnEnemyDestroyed;
     private MovableEntity _movableEntityImplementation;
 
@@ -117,20 +115,20 @@ public class Zombie : MovableEntity
             human.ReceiveDamage(damage);
         }
     }*/
+    public void ReceiveDamage(float damageTaken)
+    {
+        life -= damageTaken;
+        if (life <= 0f)
+        {
+            Die();
+        }
+    }
 
   
-
-   /* private void Die()
-    {
-        // Agregar animaci�n de muerte pendiente
-        Destroy(gameObject);
-    }*/
-
 
     private void OnDestroy()
     {
         Debug.Log("EnemyDestroyed");
-        MoneyManager.AddMoney(_reward);
         OnEnemyDestroyed?.Invoke();
         
     }

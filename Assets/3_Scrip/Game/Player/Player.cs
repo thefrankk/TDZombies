@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MovableEntity, ICameraControllable
+public class Player : MovableEntity
 {
     private Rigidbody rb;
     private Vector3 movement;
@@ -15,39 +13,17 @@ public class Player : MovableEntity, ICameraControllable
     
     
 
-    //Camera settings
-    private float _distance = 5.0f;
-    private float _height = 2.0f;
-
-
-    public static Player Instance;
-    
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-            Destroy(this.gameObject);
-    }
-
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         _speedMovement = 5f;
-        
-        CameraController.Instance.SetTarget(this);
        
 
     }
 
     private void Update()
     {
-        if (CameraController.Instance.Target != this)
-            return;
-        
+       
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
         transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
@@ -75,6 +51,11 @@ public class Player : MovableEntity, ICameraControllable
 
     }
 
+    private void FixedUpdate()
+    {
+       // MoveEntity();
+    }
+
    
     protected override void MoveEntity()
     {
@@ -95,18 +76,6 @@ public class Player : MovableEntity, ICameraControllable
         {
             Invoke("Detonar", detonationTime);
         }
-    }
-
-    public void MoveCamera(CameraController cameraController, ref InputMovement inputMovement)
-    {
-        Vector3 targetPosition = this.transform.position - (this.transform.rotation * Vector3.forward * _distance) + (Vector3.up * _height);
-        cameraController.transform.position = Vector3.Slerp(cameraController.transform.position, targetPosition, Time.deltaTime * 15f);
-
-        // Make the camera look at the target.
-        cameraController.transform.LookAt(this.transform);
-        
-        this.transform.Rotate(Vector3.up * inputMovement.DirX * 2);
-
     }
 }
 
