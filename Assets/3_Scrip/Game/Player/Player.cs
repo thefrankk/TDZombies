@@ -31,16 +31,13 @@ public class Player : MovableEntity
 
         if (Input.GetKey(KeyCode.W))
         {
-            // Reproducir la animación de caminar hacia adelante (walking)
             anim.Play("Run_animation");
         }
-        // Comprobar si la tecla "D" está presionada
+     
         else if (Input.GetKey(KeyCode.D))
         {
-            // Reproducir la animación de moverse a la derecha (right)
             anim.Play("RightSide");
         }
-        // Comprobar si la tecla "A" está presionada
         else if (Input.GetKey(KeyCode.A))
         {
             anim.Play("LeftSide");

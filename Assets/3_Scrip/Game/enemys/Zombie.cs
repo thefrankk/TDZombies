@@ -124,11 +124,7 @@ public class Zombie : MovableEntity
         }
     }
 
-    private void Die()
-    {
-        // Agregar animaci�n de muerte pendiente
-        Destroy(gameObject);
-    }
+  
 
     private void OnDestroy()
     {

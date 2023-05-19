@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class LifeEntities : MonoBehaviour
 {   
     protected float _life;
     public float damage;
     public float speed;
+    public Animator anim;
 
     public float Life => _life;
 
@@ -25,7 +28,11 @@ public class LifeEntities : MonoBehaviour
     }
     protected virtual void Die()
     {
-        // Agregar animación de muerte pendiente
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("DEATH");
+        }
         Destroy(gameObject);
     }
 }
