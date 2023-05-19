@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,11 +29,18 @@ public class LifeEntities : MonoBehaviour
     }
     protected virtual void Die()
     {
+
         Animator animator = GetComponent<Animator>();
         if (animator != null)
         {
             animator.SetTrigger("DEATH");
         }
         Destroy(gameObject);
+
+        // Agregar animación de muerte pendiente
+       Destroy(this.gameObject);
+
+       
+
     }
 }
