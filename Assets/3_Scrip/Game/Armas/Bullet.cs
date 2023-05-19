@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,14 @@ public class Bullet : MonoBehaviour
     private bool _canAttack;
 
     private int _bulletDamage = 25;
+
+    private Rigidbody _rb;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -38,6 +47,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public void ApplyForce()
+    {
+        _rb.AddForce(Vector3.zero * 5, ForceMode.Impulse);
+    }
     void HitTarget()
     {
         if(target.TryGetComponent(out LifeEntities entity))
