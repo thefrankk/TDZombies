@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy_Shooter : LifeEntities
 {
-    private Transform playerPosition;
+    public Transform playerPosition;
     public GameObject axePrefab;
     public Transform axeSpawnPoint;
     public float shootInterval = 3f;
@@ -16,19 +16,15 @@ public class Enemy_Shooter : LifeEntities
 
     void Start()
     {
-        playerPosition = FindObjectOfType<Player>().transform;
+        
         navMeshAgent = GetComponent<NavMeshAgent>();
         InvokeRepeating("ShootPlayer", shootInterval, shootInterval);
     }
 
     void Update()
     {
-        if (playerPosition != null)
-        {
-            navMeshAgent.SetDestination(playerPosition.position);
-        }
+        navMeshAgent.SetDestination(playerPosition.position);
 
-       
     }
 
     void ShootPlayer()
