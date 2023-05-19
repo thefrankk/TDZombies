@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MovableEntity
 {
@@ -28,13 +29,25 @@ public class Player : MovableEntity
         transform.position += transform.right * movement.x * _speedMovement * Time.deltaTime; 
         transform.position += transform.forward * movement.z * _speedMovement * Time.deltaTime;
 
-        if (movement.x != 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            anim.SetBool("Move", true);
+            // Reproducir la animación de caminar hacia adelante (walking)
+            anim.Play("Run_animation");
+        }
+        // Comprobar si la tecla "D" está presionada
+        else if (Input.GetKey(KeyCode.D))
+        {
+            // Reproducir la animación de moverse a la derecha (right)
+            anim.Play("RightSide");
+        }
+        // Comprobar si la tecla "A" está presionada
+        else if (Input.GetKey(KeyCode.A))
+        {
+            anim.Play("LeftSide");
         }
         else
         {
-            anim.SetBool("Move", false);
+            anim.Play("IDDLE");
         }
 
 
