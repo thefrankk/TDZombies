@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 544525608975180159}
   - component: {fileID: 544525608975180158}
   - component: {fileID: 8337013601388770046}
-  - component: {fileID: 4496999736023218651}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -110,14 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!33 &4496999736023218651
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544525608975180145}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &5674410761444727316
 PrefabInstance:
   m_ObjectHideFlags: 0
