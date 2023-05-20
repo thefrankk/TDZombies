@@ -7,6 +7,7 @@ using UnityEngine;
 public class MoneyUI : MonoBehaviour
 {
    [SerializeField] private TextMeshProUGUI _moneyText;
+    [SerializeField] private int _money = 1000;
 
    private void Awake()
    {
@@ -15,7 +16,7 @@ public class MoneyUI : MonoBehaviour
 
    private void Start()
    {
-       UpdateMoneyText(0);
+       UpdateMoneyText(_money);
    }
 
    private void UpdateMoneyText(int money)

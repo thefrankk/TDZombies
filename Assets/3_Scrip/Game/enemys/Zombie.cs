@@ -10,7 +10,7 @@ public class Zombie : MovableEntity
     private GameObject _aim;
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
-
+    
     private int _reward = 100;
 
     public Action OnEnemyDestroyed;
@@ -21,6 +21,8 @@ public class Zombie : MovableEntity
         _life = 125;
         _speedMovement = 3.5f;
         _aim = FindObjectOfType<EndDestination>().gameObject;
+        anim = GetComponent<Animator>();
+        #region
         /*  // Seleccionar un Objetivo al azar
           int randomaim = Random.Range(0, 3);
 
@@ -36,11 +38,13 @@ public class Zombie : MovableEntity
                   aim = GameObject.FindGameObjectWithTag("Plant");
                   break;
           }*/
+        #endregion
 
         MoveEntity();
     }
-    
+
    
+
 
     #region//Metodo de congelado y descongelado
     public void Frozen(float time)
@@ -65,6 +69,17 @@ public class Zombie : MovableEntity
 
     private void Update()
     {
+
+        if (life <= 0)
+        {
+            anim.SetTrigger("DEATH");
+            return;
+        }
+        else 
+        {
+            anim.SetTrigger("Z_WALK");
+            return;
+        }
         // Actualizamos el contador de tiempo congelado si es que el zombie est� congelado.
         if (timeFrozen > 0f)
         {
