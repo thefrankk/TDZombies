@@ -19,7 +19,7 @@ public class Zombie : MovableEntity
     void Start()
     {
         _life = 125;
-        _speedMovement = 3.5f;
+        _speedMovement = 0.5f;
         _aim = FindObjectOfType<EndDestination>().gameObject;
         anim = GetComponent<Animator>();
         #region
