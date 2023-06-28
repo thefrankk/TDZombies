@@ -1,35 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MENU" Collapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\#Scene\MENU\MENU.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullets" Collapsed="true">
+    <Position X="1.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAAEAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Bullets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="CameraController" Collapsed="true">
     <Position X="20.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAYAAAAAAAAQAAQAgACAAAAEAAAAAIAAAAAAEAAAA=</HashCode>
+      <HashCode>AAQAAAQIAACAAAAAQAAEACAAAAAAAAAIQACAAAEAKEM=</HashCode>
       <FileName>Assets\_Scripts\Camera\CameraController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EndDestination" Collapsed="true">
-    <Position X="15" Y="1.5" Width="1.5" />
+    <Position X="13.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\EndDestination.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Button" Collapsed="true">
-    <Position X="3" Y="8" Width="1.5" />
+    <Position X="10.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAEgCAAAAABAAAAAAAAAQAAAIAAQAAAgAAAAIA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\Button.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Cylinder" Collapsed="true">
-    <Position X="13.25" Y="1.5" Width="1.5" />
+    <Position X="22" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\Cylinder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CylinderSpawner" Collapsed="true">
-    <Position X="8.5" Y="5" Width="1.5" />
+    <Position X="0.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAIAAFAAAAAAAAKAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\CylinderSpawner.cs</FileName>
@@ -37,35 +51,28 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ExtensionMethods" Collapsed="true">
-    <Position X="18.5" Y="1.5" Width="1.5" />
+    <Position X="20.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\ExtensionMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InteractableObject" Collapsed="true">
-    <Position X="3" Y="6.5" Width="1.5" />
+    <Position X="9.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACAAAAAAAAAAAABAAAAAIAAAAAAABBAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\InteractableObject.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="InteractablePressed" Collapsed="true">
-    <Position X="0.75" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\_Scripts\Interactables\InteractablePressed.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="PressurePlate" Collapsed="true">
-    <Position X="5.25" Y="8" Width="1.5" />
+    <Position X="8.5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\PressurePlate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spikes" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15" Y="3.5" Width="1.5" />
+    <Position X="16.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAABAAAAAAAAAAABAAAAAAQgIAAAAQAQAAQEAAGA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\Spikes.cs</FileName>
@@ -73,47 +80,69 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Teleport" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.75" Y="3.5" Width="1.5" />
+    <Position X="18.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAABAAABAQAAIAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\Teleport.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="MoneyManager" Collapsed="true">
+  <Class Name="MachineGun" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="15" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AASCAAhAAAAABAAAAACAAIASAAAICAAARAAAIQIAAEA=</HashCode>
+      <FileName>Assets\_Scripts\MachineGun.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MoneyManager" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAABAEAAAAA=</HashCode>
       <FileName>Assets\_Scripts\MoneyManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Node" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.75" Y="2.5" Width="1.5" />
+    <Position X="15" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAgAACAAAAAAAABCAAAAAAAIABAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Node.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="PowerUp" Collapsed="true">
-    <Position X="9.75" Y="6.5" Width="1.5" />
+  <Class Name="NormalBullet" Collapsed="true">
+    <Position X="2.75" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABAAEAAAAAAAAAACQAEACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAABACBAAAAAAAAAAQAAACAABEAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\NormalBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PowerUp" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAABAAUAAAAAAAAAACQAEACAAAAEA=</HashCode>
       <FileName>Assets\_Scripts\Powerups\PowerUp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PowerUpLifeUp" Collapsed="true">
-    <Position X="8.5" Y="8" Width="1.5" />
+    <Position X="8.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAYAEACAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Powerups\PowerUpLifeUp.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PowerUpSpeedMovement" Collapsed="true">
-    <Position X="10.75" Y="8" Width="1.5" />
+    <Position X="10.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAQAEACAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Powerups\PowerUpSpeedMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RotateTesting" Collapsed="true">
+    <Position X="22" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\RotateTesting.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AvailableTurrets" Collapsed="true">
@@ -124,37 +153,79 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TurretData" Collapsed="true">
-    <Position X="18.5" Y="3.5" Width="1.5" />
+    <Position X="22" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAgAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAgBg=</HashCode>
       <FileName>Assets\_Scripts\ScriptableObjectsScripts\TurretData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Spawner" Collapsed="true">
-    <Position X="9.75" Y="3.5" Width="1.5" />
+  <Class Name="SeekerBullet" Collapsed="true">
+    <Position X="0.5" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIEIEAAAAAAAACAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAAAEACAEA=</HashCode>
+      <FileName>Assets\_Scripts\SeekerBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawner&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAIEIEAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Spawners\Spawner.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MoneyUI" Collapsed="true">
+    <Position X="22" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAACAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Scripts\UI\MoneyUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="UITurretsManager" Collapsed="true">
-    <Position X="20.25" Y="3.5" Width="1.5" />
+    <Position X="13.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABCAAAAAAQAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
       <FileName>Assets\_Scripts\UI\UITurretsManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UITurretsMenu" Collapsed="true">
-    <Position X="13.25" Y="4.5" Width="1.5" />
+    <Position X="15" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAACAIAAAQAAAAAABAQAAAAAABAAAAAAAAIAABACAA=</HashCode>
       <FileName>Assets\_Scripts\UI\UITurretsMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WaveController" Collapsed="true">
-    <Position X="15" Y="4.5" Width="1.5" />
+  <Class Name="EventHandler" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAACAAAAAACAAIQAAAAAAAAEAAAAAEBAAFEA=</HashCode>
+      <HashCode>CBAAAAAAAAAAAAAAAAAAAAABAAACAAAAQCAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Utils\EventHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExtendendMethods" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAIAAEAAAiAAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Utils\ExtendedMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectPooling&lt;T&gt;" Collapsed="true">
+    <Position X="18.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAACAAAAAgAAAAIAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Utils\ObjectPooling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer" Collapsed="true">
+    <Position X="20.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\_Scripts\Utils\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WaveController" Collapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIABACCAAAAAACAAYQAAAAAAAAEAAAAAEBAAFEA=</HashCode>
       <FileName>Assets\_Scripts\WaveController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -175,12 +246,12 @@
   <Class Name="Bullet" Collapsed="true">
     <Position X="18.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAKAAAAAAAAAAAAQAAAAAAAEACAQA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAABKAAAAAAAAAAAAQAAACAAAEACAUA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Armas\Bullet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnemyBullet" Collapsed="true">
-    <Position X="16.75" Y="1.5" Width="1.5" />
+    <Position X="15" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Armas\EnemyBullet.cs</FileName>
@@ -194,7 +265,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spawner_Bullet" Collapsed="true">
-    <Position X="13.25" Y="3.5" Width="1.5" />
+    <Position X="15" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAABAAAAAAAAAEgABAAAABAAAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Armas\Spawner_Bullet.cs</FileName>
@@ -203,22 +274,36 @@
   <Class Name="Turret_GRAL" Collapsed="true">
     <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAUAAAAIACIABIAAIAAACAAAAAAAAAAAAgAgAAACAAA=</HashCode>
+      <HashCode>IAUAAAAIACIABIAAIAAACAAAAAAAAAAAAgAgAAgCAAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Armas\Turret_GRAL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Enemy_Shooter" Collapsed="true">
     <Position X="0.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAQEAAASAAAAAAAAAAAAAAAAAAAAAAAAICAAAggAE=</HashCode>
+      <HashCode>AAQAQEAAASAAAAAAAAAAAAAAAAAAAAAAAAKCAAAggAE=</HashCode>
       <FileName>Assets\3_Scrip\Game\enemys\Enemy_Shooter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="KamikazeBird" Collapsed="true">
-    <Position X="20.25" Y="1.5" Width="1.5" />
+    <Position X="22" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGQAAggAAGAAAAAAIgCwAAAAAAAIAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\enemys\KamikazeBird.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KamizakeBird" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AGQAAAgAAGAAAAAAIgCwAAAAAAAIAAAAAAABAAAAAAA=</HashCode>
-      <FileName>Assets\3_Scrip\Game\enemys\KamikazeBird.cs</FileName>
+      <FileName>Assets\3_Scrip\Game\enemys\KamizakeBird.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewBehaviourScript" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\enemys\NewBehaviourScript.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SuckerZombie" Collapsed="true">
@@ -231,7 +316,7 @@
   <Class Name="Zombie" Collapsed="true">
     <Position X="5.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUBAAAAACiAAAAoBAAAAAAAAAAASAABAAACAAAoAAI=</HashCode>
+      <HashCode>AAUBAAAAAiCAAAAIBAAAAAAAAAAASAABAAACAAAogAI=</HashCode>
       <FileName>Assets\3_Scrip\Game\enemys\Zombie.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -245,19 +330,19 @@
   <Class Name="LifeEntities" Collapsed="true">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAgAAgAAEAAAAAAAAAAQAAAAAAAAABEAA=</HashCode>
+      <HashCode>AAAAAAAAAAgAgAAgAAEAAAAAAAAAAQAAAQAAAAABEAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Entitie_sscripts\LifeEntities.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Plant" Collapsed="true">
-    <Position X="20.25" Y="2.5" Width="1.5" />
+    <Position X="20.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Plant\Plant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Manager" Collapsed="true">
-    <Position X="13.25" Y="2.5" Width="1.5" />
+    <Position X="16.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Player\Manager.cs</FileName>
@@ -273,26 +358,55 @@
   <Class Name="Player" Collapsed="true">
     <Position X="3" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAYAAAAAAiAEAAAEBAAAAIAAAAAAAQAAAEAAAAAgAAA=</HashCode>
+      <HashCode>AAYAAAAAACCEAAAEBAAAAIAAAAAAAAAAQEAAIAAgIEA=</HashCode>
       <FileName>Assets\3_Scrip\Game\Player\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OgroSpawner" Collapsed="true">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAgAAAABBCAAIABEAAAAAAAACAQAgAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\3_Scrip\Game\Spawner\OgroSpawner.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectPool" Collapsed="true">
-    <Position X="18.5" Y="2.5" Width="1.5" />
+    <Position X="16.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAoAAAAAFAEAAAIABAAAACQAAAAAAAAEA=</HashCode>
       <FileName>Assets\3_Scrip\tool\ObjectPool.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_Scripts.Spawners.EnemySpawner" Collapsed="true">
-    <Position X="10.75" Y="5" Width="1.5" />
+  <Class Name="SOUNDMUSIC_CONTROLER" Collapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAABBAAAIABEAAAAAAAACAQAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\3_Scrip\tool\SOUNDMUSIC_CONTROLER.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_Scripts.Spawners.EnemySpawner" Collapsed="true">
+    <Position X="3" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAABBCAAIABEAQAAAAAACAQAAAAAAAAAAEEA=</HashCode>
       <FileName>Assets\_Scripts\Spawners\EnemySpawner.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Struct Name="InputMovement" Collapsed="true">
+    <Position X="13.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAwQAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\Camera\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="ICameraControllable" Collapsed="true">
+    <Position X="13.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\_Scripts\ICameraControllable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Interface Name="IInteractableReceiver" Collapsed="true">
-    <Position X="13.25" Y="5.75" Width="1.5" />
+    <Position X="15" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\_Scripts\Interactables\IInteractableReceiver.cs</FileName>
