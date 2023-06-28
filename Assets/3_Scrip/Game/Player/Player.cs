@@ -9,7 +9,6 @@ public class Player : MovableEntity, ICameraControllable
 {
     private Rigidbody rb;
     private Vector3 movement;
-    public Animator anim;
     public GameObject bombPrefab;
     private float detonationTime = 3f;
     

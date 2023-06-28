@@ -32,6 +32,11 @@ public class WaveController : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        MoneyManager.AddMoney(400);
+    }
+
     public async void StartWave()
     {
         _enemySpawner.SetDelayBetweenEnemies(_delayBetweenEnemies);

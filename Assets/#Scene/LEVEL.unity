@@ -5439,7 +5439,6 @@ MonoBehaviour:
   damage: 0
   speed: 5
   anim: {fileID: 963745176}
-  anim: {fileID: 963745176}
   bombPrefab: {fileID: 0}
 --- !u!54 &786211371
 Rigidbody:
@@ -6797,7 +6796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870defc4dd982f54a8ecf70f2c796355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objRef: {fileID: 544525608975180155, guid: 05653721303ea8943a526fe4f0e093fe, type: 3}
+  _objToSpawn: {fileID: 544525608975180158, guid: 05653721303ea8943a526fe4f0e093fe,
+    type: 3}
   _isActive: 0
   _enemyCount: 0
 --- !u!4 &946296774
@@ -13376,7 +13376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c334065105cd3f748b7eb3aebebc1cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objRef: {fileID: 720236253880851096, guid: 291370d8caa400b4295252d4072d0909, type: 3}
+  _objToSpawn: {fileID: 720236253880851096, guid: 291370d8caa400b4295252d4072d0909,
+    type: 3}
   _isActive: 0
   _id: 0
 --- !u!65 &1767676095
@@ -13473,7 +13474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780422101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13483,7 +13484,7 @@ RectTransform:
   m_GameObject: {fileID: 1780422100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.000000071786}
-  m_LocalScale: {x: 0.17799, y: 0.17799, z: 0.17799}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 153605677}
@@ -14749,7 +14750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1968161916
 Transform:
   m_ObjectHideFlags: 0
@@ -14777,7 +14778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53625bb1b1dcdf7429c3a2e811ba2892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objRef: {fileID: 7596143400179123129, guid: cebbbf537f44a7246a79ec05a2132c38, type: 3}
+  _objToSpawn: {fileID: 7596143400179123129, guid: cebbbf537f44a7246a79ec05a2132c38,
+    type: 3}
   _isActive: 0
   _enemyCount: 0
 --- !u!1 &1981207405

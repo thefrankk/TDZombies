@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CylinderSpawner : Spawner, IInteractableReceiver
+public class CylinderSpawner : Spawner<Transform>, IInteractableReceiver
 {
     [SerializeField] private int _id;
 
@@ -17,9 +17,9 @@ public class CylinderSpawner : Spawner, IInteractableReceiver
     protected override void Spawn()
     {
         
-        var newCylinder = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
+        var newCylinder = Instantiate(_objToSpawn, new Vector3(this.transform.position.x + 0.5f,
                                                                                        this.transform.position.y,
-                                                                                       this.transform.position.z), objRef.rotation, this.transform);
+                                                                                       this.transform.position.z), _objToSpawn.rotation, this.transform);
         
         Destroy(newCylinder.gameObject, 5f);
 

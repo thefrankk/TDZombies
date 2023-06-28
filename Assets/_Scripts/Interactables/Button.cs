@@ -25,7 +25,7 @@ public class Button : InteractableObject
     {
         return this.transform;
     }
-
+    
     private void Update()
     {
         if (_movableEntity == null)

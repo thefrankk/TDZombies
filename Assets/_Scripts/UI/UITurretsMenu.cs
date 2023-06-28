@@ -24,9 +24,11 @@ public class UITurretsMenu : MonoBehaviour
     _currentNode = node;
     this.transform.position = new Vector3(node.transform.position.x + 0.5f,
       node.transform.position.y + 5f,
-      node.transform.position.z); 
-      
-    this.gameObject.SetActive(!this.gameObject.activeSelf);
+      node.transform.position.z);
+
+
+    this.transform.ScaleTo(this.transform.localScale.x >= 0.1f ? Vector3.zero : new Vector3(0.2f, 0.2f, 0.2f), 0.5f);
+
   }
   private void BuyTurret()
   {

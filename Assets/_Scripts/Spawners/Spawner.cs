@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public abstract class Spawner : MonoBehaviour
+public abstract class Spawner<T> : MonoBehaviour where T : Component
 {
-    [SerializeField] protected Transform objRef;
+    [FormerlySerializedAs("objRef")] [SerializeField] protected T _objToSpawn;
     [SerializeField] protected bool _isActive;
     public bool IsActive => _isActive;
 

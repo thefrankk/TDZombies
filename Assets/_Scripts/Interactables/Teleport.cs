@@ -17,6 +17,7 @@ public class Teleport : MonoBehaviour, IInteractableReceiver
     {
         _objToTeleport = FindObjectOfType<Player>().transform;
         FindInteractableSender();
+        this.transform.ScaleToInOut(new Vector3(1.2f, 1.2f, 1.2f), 1f);
     }
 
     public void DoAction()

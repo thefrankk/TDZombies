@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class OgroSpawner : Spawner
+public class OgroSpawner : Spawner<Transform>
 {
     private float _delayBetweenEnemies;
     [SerializeField] private int _enemyCount;
-    private int _maxEnemyCount = 2; // Número máximo de enemigos permitidos
-    private int _minEnemyCount = 1; // Número mínimo de enemigos permitidos
+    private int _maxEnemyCount = 2; // Nï¿½mero mï¿½ximo de enemigos permitidos
+    private int _minEnemyCount = 1; // Nï¿½mero mï¿½nimo de enemigos permitidos
 
     private IEnumerator coroutine;
 
@@ -28,9 +28,9 @@ public class OgroSpawner : Spawner
     {
         if (!IsActive || _enemyCount >= _maxEnemyCount) return;
 
-        Transform enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
+        Transform enemy = Instantiate(_objToSpawn, new Vector3(this.transform.position.x + 0.5f,
             this.transform.position.y,
-            this.transform.position.z), objRef.rotation, this.transform);
+            this.transform.position.z), _objToSpawn.rotation, this.transform);
 
         Zombie zombie = enemy.GetComponent<Zombie>();
 

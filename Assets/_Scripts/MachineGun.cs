@@ -51,6 +51,7 @@ public class MachineGun : MonoBehaviour, IInteractableReceiver, ICameraControlla
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Player.Instance.transform.localScale = Vector3.one;
             CameraController.Instance.SetTarget(Player.Instance);
             this.transform.SetPositionAndRotation(_basePosition, _baseRotation);
         }
@@ -63,6 +64,8 @@ public class MachineGun : MonoBehaviour, IInteractableReceiver, ICameraControlla
     public void DoAction()
     {
         Debug.Log("ACTION");
+        Player.Instance.transform.localScale = Vector3.zero;
+
        CameraController.Instance.SetTarget(this);
     }
 

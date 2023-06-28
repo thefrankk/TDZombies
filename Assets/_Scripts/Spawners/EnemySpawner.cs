@@ -4,7 +4,7 @@ using System;
 
 namespace _Scripts.Spawners
 {
-    public class EnemySpawner : Spawner
+    public class EnemySpawner : Spawner<MovableEntity>
     {
 
         private float _delayBetweenEnemies;
@@ -12,6 +12,7 @@ namespace _Scripts.Spawners
 
         private IEnumerator coroutine;
         
+        private ObjectPooling<Zombie> _zombiePool;
        
         public event Action OnEnemiesCleared;
         public int EnemyCount
@@ -20,25 +21,36 @@ namespace _Scripts.Spawners
             private set
             {
                 _enemyCount = value;
-                if (_enemyCount <= 0) OnEnemiesCleared?.Invoke();
+                if (_enemyCount <= 0) EventHandler.TriggerEvent(EventHandler.eventName.WAVECLEARED);
             }
         }
         
 
+        private void Awake()
+        {
+            _zombiePool = new ObjectPooling<Zombie>("Zombie Pool", _objToSpawn.GetComponent<Zombie>(), 30);
+            EventHandler.RegisterEvent(EventHandler.eventName.WAVECLEARED, OnEnemiesCleared);
+
+        }
         protected override void Spawn()
         {
             if (!IsActive) return;
+
+            // Transform enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
+            //     this.transform.position.y,
+            //     this.transform.position.z), objRef.rotation, this.transform);
+
             
-            Transform enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
+            Zombie enemy = _zombiePool.GetObjectFromPool();
+            enemy.Config(new Vector3(this.transform.position.x,
                 this.transform.position.y,
-                this.transform.position.z), objRef.rotation, this.transform);
+                this.transform.position.z));
 
-
-            Zombie zombie = enemy.GetComponent<Zombie>();
+           // Zombie zombie = enemy.GetComponent<Zombie>();
             
             _enemyCount++;
 
-            zombie.OnEnemyDestroyed += () => EnemyCount--;
+            enemy.OnEnemyDestroyed += () => EnemyCount--;
             
         }
 

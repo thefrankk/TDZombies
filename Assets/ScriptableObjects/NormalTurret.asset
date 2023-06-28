@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turretPrefab: {fileID: 697663625752567659, guid: 6f6de38bc4946428ab2a1d468039753e,
     type: 3}
-  _costAmount: 0
+  _costAmount: 100
   _upgradeCostAmount: 292
   _upgradeCount: 100

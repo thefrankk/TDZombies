@@ -45,6 +45,11 @@ public class Zombie : MovableEntity
 
    
 
+    public void Config(Vector3 pos)
+    {
+        this.transform.position = new Vector3(-21, 0f, -13);
+    }
+
 
     #region//Metodo de congelado y descongelado
     public void Frozen(float time)
@@ -72,12 +77,12 @@ public class Zombie : MovableEntity
 
         if (life <= 0)
         {
-            anim.SetTrigger("DEATH");
+            anim.Play("DEATH");
             return;
         }
         else 
         {
-            anim.SetTrigger("Z_WALK");
+            anim.Play("Z_WALK");
             return;
         }
         // Actualizamos el contador de tiempo congelado si es que el zombie est� congelado.
