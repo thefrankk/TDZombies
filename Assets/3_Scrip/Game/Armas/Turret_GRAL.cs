@@ -18,6 +18,7 @@ public class Turret_GRAL : MonoBehaviour
     public Transform firePoint;
 
     public LayerMask obstacleMask;
+    public GameObject particulas;
 
     private void Start()
     {
@@ -84,12 +85,10 @@ public class Turret_GRAL : MonoBehaviour
         {
             bullet.Seek(target);
         }
+
+        Instantiate(particulas, firePoint.position, Quaternion.identity);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
+   
 }
 
