@@ -18,7 +18,11 @@ public class Player : MovableEntity, ICameraControllable
     private float _distance = 5.0f;
     private float _height = 2.0f;
 
-
+    //Audio
+    public AudioClip returnNormalSound;
+    private AudioSource audioSourceRET;
+    public AudioClip stepNormalSound;
+    private AudioSource audioSourceStep;
     public static Player Instance;
     
     private void Awake()
@@ -38,8 +42,9 @@ public class Player : MovableEntity, ICameraControllable
         _speedMovement = 5f;
         
         CameraController.Instance.SetTarget(this);
-       
 
+        audioSourceRET = GetComponent<AudioSource>();
+        audioSourceStep = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -68,6 +73,16 @@ public class Player : MovableEntity, ICameraControllable
         else
         {
             anim.Play("IDDLE");
+        }
+
+
+        if (transform.position.y <= -4)
+        {
+            transform.position = new Vector3(-12.0f, 3.46f, 0f);
+            if (returnNormalSound != null)
+            {
+                audioSourceRET.PlayOneShot(returnNormalSound);
+            }
         }
 
 

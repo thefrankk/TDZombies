@@ -16,6 +16,8 @@ public class Button : InteractableObject
     private int _currentTime;
 
 
+
+
     private void Start()
     {
         CanInteract = true;

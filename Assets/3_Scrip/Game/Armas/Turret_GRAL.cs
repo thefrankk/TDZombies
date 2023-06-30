@@ -17,12 +17,16 @@ public class Turret_GRAL : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    public AudioClip shootNormalSound;
+    private AudioSource audioSource;
+
     public LayerMask obstacleMask;
     public GameObject particulas;
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 2.0f, 0.3f);
+        InvokeRepeating("UpdateTarget", 2.0f, 0.3f); 
+        audioSource = GetComponent<AudioSource>();
     }
 
     void UpdateTarget()
@@ -74,6 +78,11 @@ public class Turret_GRAL : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
+
+        if (shootNormalSound != null)
+        {
+            audioSource.PlayOneShot(shootNormalSound);
+        }
     }
 
     void Shoot()
@@ -87,6 +96,11 @@ public class Turret_GRAL : MonoBehaviour
         }
 
         Instantiate(particulas, firePoint.position, Quaternion.identity);
+
+        if (shootNormalSound != null)
+        {
+            audioSource.PlayOneShot(shootNormalSound);
+        }
     }
 
    
