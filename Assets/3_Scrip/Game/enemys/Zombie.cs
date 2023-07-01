@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Zombie : MovableEntity
 {
-    public float life;
     private GameObject _aim;
     public NavMeshAgent navMeshAgent;
     private float timeFrozen = 0f;
     
+    [SerializeField] private Slider _imageFiller;
     private int _reward = 100;
 
     public Action OnEnemyDestroyed;
@@ -40,6 +41,8 @@ public class Zombie : MovableEntity
           }*/
         #endregion
 
+        _imageFiller.maxValue = _life;
+        _imageFiller.value = _life;
         MoveEntity();
     }
 
@@ -75,7 +78,7 @@ public class Zombie : MovableEntity
     private void Update()
     {
 
-        if (life <= 0)
+        if (_life <= 0)
         {
             anim.Play("DEATH");
             return;
@@ -168,4 +171,13 @@ public class Zombie : MovableEntity
         navMeshAgent.speed = _speedMovement;
 
     }
+
+    public override void ReceiveDamage(float damageTaken)
+    {
+        Debug.Log("Receive damage");
+        base.ReceiveDamage(damageTaken);
+        _imageFiller.value = _life;
+    }
 }
+
+

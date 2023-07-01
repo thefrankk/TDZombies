@@ -28,25 +28,22 @@ namespace _Scripts.Spawners
 
         private void Awake()
         {
-            _zombiePool = new ObjectPooling<Zombie>("Zombie Pool", _objToSpawn.GetComponent<Zombie>(), 30);
-            EventHandler.RegisterEvent(EventHandler.eventName.WAVECLEARED, OnEnemiesCleared);
+            _zombiePool = new ObjectPooling<Zombie>("Zombie Pool", _objToSpawn.GetComponent<Zombie>(), 50);
+            EventHandler.Subscribe(EventHandler.eventName.WAVECLEARED, OnEnemiesCleared);
 
         }
         protected override void Spawn()
         {
             if (!IsActive) return;
 
-            // Transform enemy = Instantiate(objRef, new Vector3(this.transform.position.x + 0.5f,
-            //     this.transform.position.y,
-            //     this.transform.position.z), objRef.rotation, this.transform);
-
+          
             
             Zombie enemy = _zombiePool.GetObjectFromPool();
             enemy.Config(new Vector3(this.transform.position.x,
                 this.transform.position.y,
                 this.transform.position.z));
 
-           // Zombie zombie = enemy.GetComponent<Zombie>();
+       
             
             _enemyCount++;
 

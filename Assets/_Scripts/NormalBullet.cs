@@ -12,6 +12,7 @@ public class NormalBullet : Bullets
 
     public float speed;
     public ForceMode forceMode;
+
     
     
     private void Awake()
@@ -39,6 +40,7 @@ public class NormalBullet : Bullets
         {
             Debug.Log("DAMAGED " + entity.Life);
             //entity.ReceiveDamage(_damage);
+           
 
             StartCoroutine(makeDamage(entity));
         }
@@ -49,11 +51,15 @@ public class NormalBullet : Bullets
     IEnumerator makeDamage(LifeEntities entity)
     {
         yield return new WaitForSeconds(0.2f);
+
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("CURRENT DAMAGE " + entity.Life);
         if (entity != null)
         {
             entity?.ReceiveDamage(_damage);
             Debug.Log("Damaged maded " + entity?.Life);
+            
+            Destroy(this.gameObject, 1f);
             
         }
 

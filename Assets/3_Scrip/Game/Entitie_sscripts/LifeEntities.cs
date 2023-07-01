@@ -15,7 +15,7 @@ public class LifeEntities : MonoBehaviour
     public float Life => _life;
 
 
-    public void ReceiveDamage(float damageTaken)
+    public virtual void ReceiveDamage(float damageTaken)
     {
         _life -= damageTaken;
         if (_life <= 0f)

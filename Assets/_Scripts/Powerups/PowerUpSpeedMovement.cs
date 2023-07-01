@@ -28,6 +28,7 @@ public class PowerUpSpeedMovement : PowerUp
     {
         if (other.TryGetComponent<MovableEntity>(out MovableEntity entity))
         {
+            Debug.Log("Start powerup");
             StartPowerUp<MovableEntity>(_duration, entity);
         }
     }

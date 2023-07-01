@@ -38,6 +38,7 @@ public class MachineGun : MonoBehaviour, IInteractableReceiver, ICameraControlla
 
             if (Physics.Raycast(_firePoint.position, _firePoint.transform.forward, out RaycastHit hit, 1000f, _layerMask)) 
             {
+                Debug.Log("applied damage");
                 bullet.HitTarget(hit.transform);
             }
         }

@@ -6,6 +6,8 @@ using _Scripts.Spawners;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.Threading;
+using TMPro;
+
 public class WaveController : MonoBehaviour
 {
 
@@ -15,6 +17,7 @@ public class WaveController : MonoBehaviour
     private float _secondsSpawning = 3;
     private float _delayBetweenEnemies = 1.5f;
 
+    [SerializeField] private TextMeshProUGUI _currentWave;
     private readonly float _secondsForWaitingNextRound = 10;
     public int CurrentWave { get; private set; }
 
@@ -27,7 +30,9 @@ public class WaveController : MonoBehaviour
     {
         
         StartWave();
-        _enemySpawner.OnEnemiesCleared += configNextWave;
+        //_enemySpawner.OnEnemiesCleared += configNextWave;
+        
+        EventHandler.Subscribe(EventHandler.eventName.WAVECLEARED, configNextWave);
         _cancellationToken = _cancellationTokenSource.Token;
 
     }
@@ -41,6 +46,8 @@ public class WaveController : MonoBehaviour
     {
         _enemySpawner.SetDelayBetweenEnemies(_delayBetweenEnemies);
         _enemySpawner.StartSpawner();
+        
+        _currentWave.text = $"WAVE {CurrentWave}";
 
         Debug.Log("Enemy Spawner Started");
         await Task.Delay(Mathf.CeilToInt((_secondsSpawning) * 1000), _cancellationToken);
@@ -71,6 +78,7 @@ public class WaveController : MonoBehaviour
         _secondsSpawning = Mathf.Clamp((_secondsSpawning + 1 ), 0, MaxSecondsSpawning);
         _delayBetweenEnemies = Mathf.Clamp((_delayBetweenEnemies - 0.2f ), MinDelayBetweenEnemies, 100);
         
+        _currentWave.text = $"WAVE {CurrentWave}";
         NextWave();
     }
     public async void NextWave()

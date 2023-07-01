@@ -20,7 +20,7 @@ public class OgroSpawner : Spawner<Transform>
         private set
         {
             _enemyCount = value;
-            if (_enemyCount <= 0) OnEnemiesCleared?.Invoke();
+            if (_enemyCount <= 0) EventHandler.TriggerEvent(EventHandler.eventName.WAVECLEARED);
         }
     }
 

@@ -23,6 +23,10 @@ public static class EventHandler
         {
             _eventDictionary[eventName] += callback;
         }
+        else
+        {
+            _eventDictionary.Add(eventName, callback);
+        }
     }
     
     public static void Unsubscribe(eventName eventName, Action callback)
