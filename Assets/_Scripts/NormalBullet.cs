@@ -20,6 +20,8 @@ public class NormalBullet : Bullets
         _speed = 30f;
         _damage = 10f;
         _rb = GetComponent<Rigidbody>();
+        
+        Destroy(this.gameObject, 1.5f);
     }
 
     public void ApplyForce(Vector3 dir)
@@ -50,7 +52,8 @@ public class NormalBullet : Bullets
 
     IEnumerator makeDamage(LifeEntities entity)
     {
-        yield return new WaitForSeconds(0.2f);
+
+       
 
         yield return new WaitForSeconds(0.5f);
         Debug.Log("CURRENT DAMAGE " + entity.Life);
@@ -59,7 +62,6 @@ public class NormalBullet : Bullets
             entity?.ReceiveDamage(_damage);
             Debug.Log("Damaged maded " + entity?.Life);
             
-            Destroy(this.gameObject, 1f);
             
         }
 
