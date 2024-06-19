@@ -2,7 +2,16 @@ fileFormatVersion: 2
 guid: 0fe0c79c04ec059409a12dd622e8adeb
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 4419341551624498096
+    second: Armature|ArmatureAction.003
+  - first:
+      74: -8434355280063164500
+    second: Armature|Plane.002Action
+  - first:
+      74: -1177906569688301896
+    second: Plane.002|Plane.002Action
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -103,7 +112,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.004
+    globalScale: 0.4
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
